@@ -1,5 +1,7 @@
-﻿namespace DO;
+﻿using CarRentalEntities.IEntity;
 
-public class CarColor
+namespace DO;
+
+public class CarColor : IEntity
 {
 }

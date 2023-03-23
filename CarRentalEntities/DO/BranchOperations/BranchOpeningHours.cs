@@ -1,5 +1,11 @@
-﻿namespace DO;
+﻿using CarRentalEntities.IEntity;
 
-public class BranchOpeningHours
+namespace DO;
+
+public class BranchOpeningHours : IEntity
 {
+    public Branch? Branch { set; get; }
+
+    public int BranchId { set; get; }
+
 }

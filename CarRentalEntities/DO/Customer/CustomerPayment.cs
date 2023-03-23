@@ -1,5 +1,7 @@
-﻿namespace DO;
+﻿using CarRentalEntities.IEntity;
 
-public class CustomerPayment
+namespace DO;
+
+public class CustomerPayment : IEntity
 {
 }

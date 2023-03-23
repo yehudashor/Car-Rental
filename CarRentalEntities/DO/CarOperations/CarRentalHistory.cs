@@ -1,5 +1,7 @@
-﻿namespace DO;
+﻿using CarRentalEntities.IEntity;
 
-public class CarRentalHistory
+namespace DO;
+
+public class CarRentalHistory : IEntity
 {
 }

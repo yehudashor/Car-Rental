@@ -1,5 +1,7 @@
-﻿namespace DO;
+﻿using CarRentalEntities.IEntity;
 
-public class CarImage
+namespace DO;
+
+public class CarImage : IEntity
 {
 }

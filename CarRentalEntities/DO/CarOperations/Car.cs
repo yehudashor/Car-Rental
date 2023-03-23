@@ -1,5 +1,10 @@
-﻿namespace DO;
+﻿using CarRentalEntities.IEntity;
 
-public class Car
+namespace DO;
+
+public class Car : IEntity
 {
+    public Branch? Branch { set; get; }
+
+    public int BranchId { set; get; }
 }
