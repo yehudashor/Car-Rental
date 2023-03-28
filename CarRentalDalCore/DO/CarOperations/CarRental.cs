@@ -1,4 +1,4 @@
-﻿using CarRentalEntities.IEntity;
+﻿using DalApi.IEntity;
 
 namespace DO;
 

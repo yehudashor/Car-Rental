@@ -1,34 +1,32 @@
-﻿using CarRentalEntities.IEntity;
+﻿using DalApi.IEntity;
 
 namespace DO;
 
-/// <summary>
-/// Car rental branch entity.
-/// </summary>
+// Represents a branch location for a car rental company.
 public class Branch : IEntity
 {
     /// <summary>
-    /// Branch id.
+    /// Unique identifier for the branch.
     /// </summary>
     public int BranchId { set; get; }
 
     /// <summary>
-    /// Branch location.
+    /// The physical location of the branch.
     /// </summary>
     public BranchLocation Location { set; get; }
 
     /// <summary>
-    /// Foreign key to branch location entity.
+    /// Foreign key to the branch location entity.
     /// </summary>
     public int LocationId { set; get; }
 
     /// <summary>
-    /// List of branch opening hours, each entity describes daily opening hours. 
+    /// The opening hours for the branch, stored as a collection of daily opening hour entities.
     /// </summary>
     public ICollection<BranchOpeningHours> OpeningHoursList { set; get; }
 
     /// <summary>
-    /// The list of cars currently in the branch includes the cars actually rented from the branch.
+    /// The cars currently available at the branch, including those that are currently rented out.
     /// </summary>
     public ICollection<Car> Cars { set; get; }
 }
