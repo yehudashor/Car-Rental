@@ -2,7 +2,9 @@
 
 namespace DO;
 
-// Represents a branch location for a car rental company.
+/// <summary>
+/// Represents a branch location for a car rental company.
+/// </summary>
 public class Branch : IEntity
 {
     /// <summary>
