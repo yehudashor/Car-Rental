@@ -15,12 +15,7 @@ public class Branch : IEntity
     /// <summary>
     /// The physical location of the branch.
     /// </summary>
-    public BranchLocation Location { set; get; }
-
-    /// <summary>
-    /// Foreign key to the branch location entity.
-    /// </summary>
-    public int LocationId { set; get; }
+    public BranchLocation BranchLocation { set; get; }
 
     /// <summary>
     /// The opening hours for the branch, stored as a collection of daily opening hour entities.
@@ -30,5 +25,5 @@ public class Branch : IEntity
     /// <summary>
     /// The cars currently available at the branch, including those that are currently rented out.
     /// </summary>
-    public ICollection<Car> Cars { set; get; }
+    public ICollection<CarRental> CarRentals { set; get; }
 }

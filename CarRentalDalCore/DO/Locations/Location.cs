@@ -11,16 +11,6 @@ public class Location
     public int LocationId { set; get; }
 
     /// <summary>
-    /// Gets or sets the longitude of the location.
-    /// </summary>
-    public double Longitude { set; get; }
-
-    /// <summary>
-    /// Gets or sets the latitude of the location.
-    /// </summary>
-    public double Latitude { set; get; }
-
-    /// <summary>
     /// Gets or sets the country of the location.
     /// </summary>
     public string Country { get; set; }

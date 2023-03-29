@@ -61,4 +61,9 @@ public class Car : IEntity
     /// Collection of colors the car is available in
     /// </summary>
     public ICollection<CarColor> Colors { set; get; }
+
+    /// <summary>
+    /// Daily rental price for this car
+    /// </summary>
+    public double DayPrice { set; get; }
 }
