@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CarRentalDalEF;
 
-internal class CarRentalDBContext : DbContext
+public class CarRentalDBContext : DbContext
 {
     public virtual DbSet<Branch> Branches { get; set; }
     public virtual DbSet<BranchOpeningHours> BranchesOpeningHours { get; set; }

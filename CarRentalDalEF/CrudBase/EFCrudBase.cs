@@ -1,41 +1,57 @@
-﻿using CarRentalDalCore.DalApi;
+﻿using CarRentalDalCore.DalApi.ICrud;
 using DalApi.IEntity;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq.Expressions;
 
 namespace CarRentalDalEF.CrudBase;
-
-
 
 public class EFCrudBase<TEntity, TDBContext> : ICrud<TEntity>
     where TEntity : class, IEntity, new()
     where TDBContext : DbContext, new()
 {
-    public void Add(TEntity entity)
+    public async Task Add(TEntity entity)
     {
         using (TDBContext dBContext = new TDBContext())
         {
-            dBContext.Add(entity);
-            dBContext.SaveChanges();
+            await dBContext.AddAsync(entity);
+            await dBContext.SaveChangesAsync();
         }
     }
 
-    public void Delete(Func<TEntity, bool> func)
+    public async Task Delete(Expression<Func<TEntity, bool>> func)
     {
-        throw new NotImplementedException();
+        using (TDBContext dBContext = new TDBContext())
+        {
+            dBContext.Remove(func);
+            await dBContext.SaveChangesAsync();
+        }
     }
 
-    public TEntity Get(Func<TEntity, bool> func)
+    public async Task<TEntity> Get(Expression<Func<TEntity, bool>> func)
     {
-        throw new NotImplementedException();
+        using (TDBContext dBContext = new TDBContext())
+        {
+            TEntity entity = await dBContext.Set<TEntity>().FindAsync(func);
+            return entity;
+        }
     }
 
-    public IEnumerable<TEntity> GetAll(Func<TEntity, bool> func)
+    public async Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> func)
     {
-        throw new NotImplementedException();
+        using (TDBContext dBContext = new TDBContext())
+        {
+            IEnumerable<TEntity> entities = await dBContext.Set<TEntity>().Where(func).ToListAsync();
+            return entities;
+        }
     }
 
-    public void Update(TEntity entity)
+    public async Task Update(TEntity entity)
     {
-        throw new NotImplementedException();
+        using (TDBContext dBContext = new TDBContext())
+        {
+            dBContext.Update(entity);
+            await dBContext.SaveChangesAsync();
+        }
     }
 }
