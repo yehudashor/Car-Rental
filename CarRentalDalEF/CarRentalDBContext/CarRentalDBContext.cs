@@ -1,4 +1,6 @@
-﻿using DO;
+﻿using DalApi.IEntity;
+using DO;
+using IEntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -10,24 +12,21 @@ public class CarRentalDBContext : DbContext
     public virtual DbSet<BranchOpeningHours> BranchesOpeningHours { get; set; }
     public virtual DbSet<BranchLocation> BranchesLocations { get; set; }
 
+    private List<IEntityTypeConfiguration<IEntity>> _entityTypeConfigurations;
+
+    public CarRentalDBContext()
+    {
+        _entityTypeConfigurations = new List<IEntityTypeConfiguration<IEntity>>
+        {
+
+        };
+    }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-            modelBuilder.Entity<Branch>(entity =>
-            {
-                entity.HasKey(b => b.BranchId);
-
-                entity.HasOne(b => b.BranchLocation).WithOne(b => b.Branch).HasForeignKey<BranchLocation>(b => b.BranchId);
-                entity.HasMany(b => b.OpeningHoursList).WithOne(b => b.Branch).HasForeignKey(b => b.BranchId);
-                entity.HasMany(b => b.CarRentals).WithOne(b => b.Branch).HasForeignKey(b => b.BranchId);
-
-            });
-
-     
-        EntityTypeBuilder<BranchLocation> branchLocationBuilder = modelBuilder.Entity<BranchLocation>();
-
-        branchLocationBuilder.HasKey(bl => bl.BranchLocationId);
-
-       // branchLocationBuilder.HasOne(bl => bl.Location).WithOne()
-
+        foreach (var entityTypeConfiguration in _entityTypeConfigurations)
+        {
+            modelBuilder.ApplyConfiguration(entityTypeConfiguration);
+        }
     }
 }
