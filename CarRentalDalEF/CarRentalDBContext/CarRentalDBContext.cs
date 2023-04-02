@@ -1,8 +1,7 @@
 ﻿using DalApi.IEntity;
 using DO;
-using IEntityConfigurations;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Reflection;
 
 namespace CarRentalDalEF;
 
@@ -24,9 +23,6 @@ public class CarRentalDBContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        foreach (var entityTypeConfiguration in _entityTypeConfigurations)
-        {
-            modelBuilder.ApplyConfiguration(entityTypeConfiguration);
-        }
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetEntryAssembly());
     }
 }

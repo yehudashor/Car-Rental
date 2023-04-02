@@ -1,5 +1,4 @@
-﻿using DalApi.IEntity;
-using DO;
+﻿using DO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -14,6 +13,6 @@ internal class BranchConfiguration : IEntityTypeConfiguration<Branch>
         builder.HasMany(b => b.OpeningHoursList).WithOne(b => b.Branch).HasForeignKey(b => b.BranchId);
         builder.HasMany(b => b.CarRentals).WithOne(b => b.Branch).HasForeignKey(b => b.BranchId);
         builder.Property(b => b.BranchLocation).IsRequired();
-        
+
     }
 }
