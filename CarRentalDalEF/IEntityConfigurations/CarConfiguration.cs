@@ -8,7 +8,22 @@ namespace IEntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Car> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(c => c.CarId);
+
+            builder.HasMany(c => c.Images)
+                .WithOne(c => c.Car)
+                .HasForeignKey(c => c.CarId)
+                  .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasMany(c => c.Colors)
+              .WithOne(c => c.Car)
+              .HasForeignKey(c => c.CarId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasMany(c => c.CarRentals)
+             .WithOne(c => c.Car)
+             .HasForeignKey(c => c.CarId)
+               .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

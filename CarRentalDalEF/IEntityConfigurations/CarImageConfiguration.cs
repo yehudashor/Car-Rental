@@ -8,6 +8,6 @@ internal class CarImageConfiguration : IEntityTypeConfiguration<CarImage>
 {
     public void Configure(EntityTypeBuilder<CarImage> builder)
     {
-        throw new NotImplementedException();
+        builder.HasKey(ci => new { ci.CarId, ci.CarImageName });
     }
 }

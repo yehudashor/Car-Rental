@@ -8,6 +8,13 @@ internal class CustomerDetailsConfiguration : IEntityTypeConfiguration<CustomerD
 {
     public void Configure(EntityTypeBuilder<CustomerDetails> builder)
     {
-        throw new NotImplementedException();
+        builder.HasKey(cd => cd.CustomerDetailsId);
+
+        builder.HasMany(cd => cd.CarRentals)
+            .WithOne(cd => cd.CustomerDetails)
+            .HasForeignKey(cd => cd.CustomerDetails);
+
+        builder.HasOne(cd => cd.Location)
+            .WithOne().HasForeignKey<CustomerDetails>(cd => cd.LocationId);
     }
 }

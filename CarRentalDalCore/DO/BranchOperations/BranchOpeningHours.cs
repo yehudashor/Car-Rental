@@ -6,12 +6,12 @@ namespace DO;
 public class BranchOpeningHours : IEntity
 {
     /// <summary>
-    /// Unique identifier for the opening hours entity.
+    /// Foreign key and the first key part of the branch entity.
     /// </summary>
-    public int BranchOpeningHoursId { get; set; }
+    public int BranchId { set; get; }
 
     /// <summary>
-    /// The day of the week to which these opening hours apply.
+    /// The day of the week and the second key part of which these opening hours apply.
     /// </summary>
     public DayOfWeek DayOfWeek { set; get; }
 
@@ -19,11 +19,6 @@ public class BranchOpeningHours : IEntity
     /// The branch to which these opening hours apply.
     /// </summary>
     public Branch Branch { set; get; }
-
-    /// <summary>
-    /// Foreign key to the branch entity.
-    /// </summary>
-    public int BranchId { set; get; }
 
     /// <summary>
     /// The time at which the branch opens on the specified day of the week.

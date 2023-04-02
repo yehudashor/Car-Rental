@@ -8,6 +8,10 @@ internal class CustomerPaymentConfiguration : IEntityTypeConfiguration<CustomerP
 {
     public void Configure(EntityTypeBuilder<CustomerPayment> builder)
     {
-        throw new NotImplementedException();
+        builder.HasKey(cp => cp.CustomerPaymentId);
+
+        builder.HasOne(cp => cp.CreditCard)
+            .WithOne()
+            .HasForeignKey<CustomerPayment>(cp => cp.CreditCardId);
     }
 }

@@ -8,6 +8,6 @@ internal class BranchLocationConfiguration : IEntityTypeConfiguration<BranchLoca
 {
     public void Configure(EntityTypeBuilder<BranchLocation> builder)
     {
-        throw new NotImplementedException();
+        builder.HasKey(bl => bl.BranchLocationId);
     }
 }

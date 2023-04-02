@@ -8,6 +8,6 @@ internal class LocationConfiguration : IEntityTypeConfiguration<Location>
 {
     public void Configure(EntityTypeBuilder<Location> builder)
     {
-        throw new NotImplementedException();
+        builder.HasKey(l => l.LocationId);
     }
 }

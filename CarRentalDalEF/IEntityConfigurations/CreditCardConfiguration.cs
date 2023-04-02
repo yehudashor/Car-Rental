@@ -8,6 +8,6 @@ internal class CreditCardConfiguration : IEntityTypeConfiguration<CreditCard>
 {
     public void Configure(EntityTypeBuilder<CreditCard> builder)
     {
-        throw new NotImplementedException();
+        builder.HasKey(cc => cc.CreditCardId);
     }
 }

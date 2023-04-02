@@ -1,7 +1,6 @@
 ﻿using CarRentalDalCore.DalApi.ICrud;
 using DalApi.IEntity;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Linq.Expressions;
 
 namespace CarRentalDalEF.CrudBase;

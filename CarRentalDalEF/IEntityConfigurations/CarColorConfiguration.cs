@@ -8,6 +8,6 @@ internal class CarColorConfiguration : IEntityTypeConfiguration<CarColor>
 {
     public void Configure(EntityTypeBuilder<CarColor> builder)
     {
-        throw new NotImplementedException();
+        builder.HasKey(cc => new { cc.CarId, cc.CarColorName });
     }
 }

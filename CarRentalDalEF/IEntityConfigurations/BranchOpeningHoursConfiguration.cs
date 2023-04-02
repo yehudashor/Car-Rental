@@ -8,6 +8,6 @@ internal class BranchOpeningHoursConfiguration : IEntityTypeConfiguration<Branch
 {
     public void Configure(EntityTypeBuilder<BranchOpeningHours> builder)
     {
-        throw new NotImplementedException();
+        builder.HasKey(boh => new { boh.BranchId, boh.DayOfWeek });
     }
 }

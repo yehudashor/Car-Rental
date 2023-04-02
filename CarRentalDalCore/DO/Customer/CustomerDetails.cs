@@ -51,4 +51,9 @@ public class CustomerDetails : IEntity
     /// Gets or sets the location entity of the customer.
     /// </summary>
     public Location Location { set; get; }
+
+    /// <summary>
+    /// Collection of car rentals of the car.
+    /// </summary>
+    public ICollection<CarRental> CarRentals { set; get; }
 }

@@ -58,9 +58,14 @@ public class Car : IEntity
     public ICollection<CarImage> Images { set; get; }
 
     /// <summary>
-    /// Collection of colors the car is available in
+    /// Collection of colors of the car.
     /// </summary>
     public ICollection<CarColor> Colors { set; get; }
+
+    /// <summary>
+    /// Collection of car rentals of the car.
+    /// </summary>
+    public ICollection<CarRental> CarRentals { set; get; }
 
     /// <summary>
     /// Daily rental price for this car

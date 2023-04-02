@@ -13,11 +13,6 @@ public class CustomerPayment : IEntity
     public int CustomerPaymentId { get; set; }
 
     /// <summary>
-    /// Gets or sets the car rental id associated with the payment.
-    /// </summary>
-    public int CarRentalId { set; get; }
-
-    /// <summary>
     /// Gets or sets the car rental entity associated with the payment.
     /// </summary>
     public CarRental CarRental { set; get; }
