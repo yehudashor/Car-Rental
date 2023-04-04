@@ -1,5 +1,6 @@
 ﻿using CarRentalDalCore.DalApi.ICrud;
 using DalApi.IEntity;
+using DO;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
@@ -18,30 +19,37 @@ public class EFCrudBase<TEntity, TDBContext> : ICrud<TEntity>
         }
     }
 
-    public async Task Delete(Expression<Func<TEntity, bool>> func)
+    public async Task Delete(Expression<Func<TEntity, bool>> filter)
     {
         using (TDBContext dBContext = new TDBContext())
         {
-            dBContext.Remove(func);
+            dBContext.Remove(filter);
             await dBContext.SaveChangesAsync();
         }
     }
 
-    public async Task<TEntity> Get(Expression<Func<TEntity, bool>> func)
+    public async Task<TEntity> Get(Expression<Func<TEntity, bool>> filter)
     {
         using (TDBContext dBContext = new TDBContext())
         {
-            TEntity entity = await dBContext.Set<TEntity>().FindAsync(func);
+            TEntity entity = await dBContext.Set<TEntity>().FindAsync(filter);
             return entity;
         }
     }
 
-    public async Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> func)
+    public async Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter = null,
+        params Expression<Func<TEntity, object>>[] includeProperties)
     {
         using (TDBContext dBContext = new TDBContext())
         {
-            IEnumerable<TEntity> entities = await dBContext.Set<TEntity>().Where(func).ToListAsync();
-            return entities;
+            DbSet<TEntity> entities = dBContext.Set<TEntity>();
+            IQueryable<TEntity> entitiesResult = filter is null ? entities.Select(e => e) : entities.Where(filter);
+
+            foreach (var includeProperty in includeProperties)
+            {
+                entitiesResult = entitiesResult.Include(includeProperty);
+            }
+            return await entitiesResult.ToListAsync();
         }
     }
 
