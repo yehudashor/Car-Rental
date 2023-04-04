@@ -9,5 +9,10 @@ internal class BranchLocationConfiguration : IEntityTypeConfiguration<BranchLoca
     public void Configure(EntityTypeBuilder<BranchLocation> builder)
     {
         builder.HasKey(bl => bl.BranchLocationId);
+
+        builder.HasOne(bl => bl.Location)
+            .WithOne()
+            .HasForeignKey<BranchLocation>(bl => bl.LocationId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

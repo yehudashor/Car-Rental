@@ -21,5 +21,8 @@ public class CreditCard : IEntity
     /// Gets or sets the CVV number of the credit card.
     /// </summary>
     public int CVV { get; set; }
+
+    public ICollection<CreditCardPayment> CreditCardPayments { set; get; }
+
 }
 

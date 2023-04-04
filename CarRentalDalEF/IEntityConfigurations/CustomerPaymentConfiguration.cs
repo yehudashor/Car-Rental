@@ -10,8 +10,8 @@ internal class CustomerPaymentConfiguration : IEntityTypeConfiguration<CustomerP
     {
         builder.HasKey(cp => cp.CustomerPaymentId);
 
-        builder.HasOne(cp => cp.CreditCard)
-            .WithOne()
-            .HasForeignKey<CustomerPayment>(cp => cp.CreditCardId);
+        builder.HasMany(cp => cp.CreditCardPayments)
+            .WithOne(cp => cp.CustomerPayment)
+            .HasForeignKey(cp => cp.CustomerPaymentId);
     }
 }

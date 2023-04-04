@@ -17,13 +17,5 @@ public class CustomerPayment : IEntity
     /// </summary>
     public CarRental CarRental { set; get; }
 
-    /// <summary>
-    /// Gets or sets the credit card id associated with the payment.
-    /// </summary>
-    public int CreditCardId { get; set; }
-
-    /// <summary>
-    /// Gets or sets the credit card entity associated with the payment.
-    /// </summary>
-    public CreditCard CreditCard { get; set; }
+    public ICollection<CreditCardPayment> CreditCardPayments { set; get; }
 }

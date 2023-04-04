@@ -12,6 +12,7 @@ internal class CarRentalConfiguration : IEntityTypeConfiguration<CarRental>
 
         builder.HasOne(cr => cr.CustomerPayment)
             .WithOne(cr => cr.CarRental)
-            .HasForeignKey<CarRental>(cr => cr.CustomerPaymentId);
+            .HasForeignKey<CarRental>(cr => cr.CustomerPaymentId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

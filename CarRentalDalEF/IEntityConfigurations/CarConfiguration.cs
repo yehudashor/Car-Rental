@@ -23,7 +23,7 @@ namespace IEntityConfigurations
             builder.HasMany(c => c.CarRentals)
              .WithOne(c => c.Car)
              .HasForeignKey(c => c.CarId)
-               .OnDelete(DeleteBehavior.Cascade);
+               .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
