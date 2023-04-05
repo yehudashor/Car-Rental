@@ -1,6 +1,8 @@
-﻿namespace DO;
+﻿using DalApi.IEntity;
 
-public class CreditCardPayment
+namespace DO;
+
+public class CreditCardPayment : IEntity
 {
     /// <summary>
     /// The first identifier of the customer payment associated with this rental transaction.

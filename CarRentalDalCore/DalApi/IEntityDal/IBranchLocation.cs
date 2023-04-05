@@ -1,7 +1,7 @@
-﻿using CarRentalDalCore.DalApi.ICrud;
+﻿using DalApi.ICrud;
 using DO;
 
-namespace CarRentalDalCore.DalApi.IEntityDal;
+namespace DalApi.IEntityDal;
 
 public interface IBranchLocation : ICrud<BranchLocation>
 {

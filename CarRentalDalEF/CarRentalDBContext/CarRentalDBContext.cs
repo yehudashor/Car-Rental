@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
-namespace CarRentalDalEF;
+namespace CarRentalDBContext;
 
 public class CarRentalDBContext : DbContext
 {

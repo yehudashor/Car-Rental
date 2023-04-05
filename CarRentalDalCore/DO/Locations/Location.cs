@@ -1,9 +1,11 @@
-﻿namespace DO;
+﻿using DalApi.IEntity;
+
+namespace DO;
 
 /// <summary>
 /// Represents a location on Earth.
 /// </summary>
-public class Location
+public class Location : IEntity
 {
     /// <summary>
     /// Gets or sets the unique identifier for the location.

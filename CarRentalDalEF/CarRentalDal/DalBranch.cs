@@ -1,10 +1,9 @@
-﻿using CarRentalDalEF.CrudBase;
+﻿using CrudBase;
 using DalApi.IEntityDal;
 using DO;
 
-namespace CarRentalDalEF.CarRentalDal;
+namespace CarRentalDBContext.CarRentalDal;
 
 public class DalBranch : EFCrudBase<Branch, CarRentalDBContext>, IBranch
 {
-
 }

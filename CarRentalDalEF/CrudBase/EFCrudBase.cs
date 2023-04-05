@@ -1,10 +1,9 @@
-﻿using CarRentalDalCore.DalApi.ICrud;
+﻿using DalApi.ICrud;
 using DalApi.IEntity;
-using DO;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace CarRentalDalEF.CrudBase;
+namespace CrudBase;
 
 public class EFCrudBase<TEntity, TDBContext> : ICrud<TEntity>
     where TEntity : class, IEntity, new()

@@ -2,7 +2,7 @@
 using DO;
 
 namespace DalApi.IEntityDal;
-public interface IBranch : ICrud<Branch>
-{
 
+public interface ICustomerPayment : ICrud<CustomerPayment>
+{
 }

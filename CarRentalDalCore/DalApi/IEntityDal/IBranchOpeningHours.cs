@@ -1,5 +1,8 @@
-﻿namespace CarRentalDalCore.DalApi.IEntityDal;
+﻿using DalApi.ICrud;
+using DO;
 
-public interface IBranchOpeningHours
+namespace DalApi.IEntityDal;
+
+public interface IBranchOpeningHours : ICrud<BranchOpeningHours>
 {
 }
