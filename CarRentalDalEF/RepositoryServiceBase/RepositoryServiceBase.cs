@@ -62,21 +62,29 @@ public class RepositoryServiceBase<TEntity, TDBContext> : IRepositoryService<TEn
         }
     }
 
-    public async Task Reference(TEntity entity, params Expression<Func<TEntity, object>>[] expression)
+    public async Task Reference(TEntity entity, params Expression<Func<TEntity, object>>[] loadObjects)
     {
         using (TDBContext dBContext = new TDBContext())
         {
-            EntityEntry < TEntity >
-             foreach (var item in collection)
-            {
+            EntityEntry<TEntity> entityEntry = dBContext.Entry(entity);
 
+            foreach (var loadObject in loadObjects)
+            {
+                await entityEntry.Reference(loadObject).LoadAsync();
             }
-            dBContext.Entry(entity)
         }
     }
 
-    public Task Collection(TEntity entity, params Expression<Func<TEntity, IEnumerable<object>>>[] expression)
+    public async Task Collection(TEntity entity, params Expression<Func<TEntity, IEnumerable<object>>>[] loadObjectsCollection)
     {
-        throw new NotImplementedException();
+        using (TDBContext dBContext = new TDBContext())
+        {
+            EntityEntry<TEntity> entityEntry = dBContext.Entry(entity);
+
+            foreach (var loadObjectCollection in loadObjectsCollection)
+            {
+                await entityEntry.Collection(loadObjectCollection).LoadAsync();
+            }
+        }
     }
 }
