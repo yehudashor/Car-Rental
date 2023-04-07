@@ -1,9 +1,9 @@
-﻿using CrudBase;
+﻿using RepositoryServiceBase;
 using DO;
 using IEntityDal;
 
 namespace CarRentalDal;
 
-public class DalCreditCard : EFCrudBase<CreditCard, CarRentalDBContext.CarRentalDBContext>, ICreditCard
+public class DalCreditCard : RepositoryServiceBase<CreditCard, CarRentalDBContext.CarRentalDBContext>, ICreditCard
 {
 }

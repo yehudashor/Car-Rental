@@ -1,8 +1,8 @@
 ﻿using System.Linq.Expressions;
 
-namespace DalApi.ICrud;
+namespace DalApi.IRepositoryService;
 
-public interface ICrud<TEntity> where TEntity : class, IEntity.IEntity, new()
+public interface IRepositoryService<TEntity> where TEntity : class, IEntity.IEntity, new()
 {
     Task Add(TEntity entity);
     Task Delete(Expression<Func<TEntity, bool>> filter);

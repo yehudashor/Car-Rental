@@ -1,9 +1,9 @@
 ﻿
-using DalApi.ICrud;
+using DalApi.IRepositoryService;
 using DO;
 
 namespace IEntityDal;
 
-public interface ICarColor : ICrud<CarColor>
+public interface ICarColor : IRepositoryService<CarColor>
 {
 }

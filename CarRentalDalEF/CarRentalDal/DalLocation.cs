@@ -1,9 +1,9 @@
-﻿using CrudBase;
+﻿using RepositoryServiceBase;
 using DO;
 using IEntityDal;
 
 namespace CarRentalDal;
 
-public class DalLocation : EFCrudBase<Location, CarRentalDBContext.CarRentalDBContext>, ILocation
+public class DalLocation : RepositoryServiceBase<Location, CarRentalDBContext.CarRentalDBContext>, ILocation
 {
 }

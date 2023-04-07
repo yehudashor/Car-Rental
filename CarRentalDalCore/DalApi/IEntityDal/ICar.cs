@@ -1,8 +1,8 @@
-﻿using DalApi.ICrud;
+﻿using DalApi.IRepositoryService;
 using DO;
 
 namespace IEntityDal;
 
-public interface ICar : ICrud<Car>
+public interface ICar : IRepositoryService<Car>
 {
 }

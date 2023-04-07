@@ -24,6 +24,5 @@ internal class BranchConfiguration : IEntityTypeConfiguration<Branch>
             .WithOne(b => b.Branch)
             .HasForeignKey(b => b.BranchId)
             .OnDelete(DeleteBehavior.NoAction);
-
     }
 }

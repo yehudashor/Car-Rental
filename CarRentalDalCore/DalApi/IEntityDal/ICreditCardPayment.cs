@@ -1,8 +1,8 @@
-﻿using DalApi.ICrud;
+﻿using DalApi.IRepositoryService;
 using DO;
 
 namespace IEntityDal;
 
-public interface ICreditCardPayment : ICrud<CreditCardPayment>
+public interface ICreditCardPayment : IRepositoryService<CreditCardPayment>
 {
 }

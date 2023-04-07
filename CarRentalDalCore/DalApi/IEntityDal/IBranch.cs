@@ -1,8 +1,8 @@
-﻿using DalApi.ICrud;
+﻿using DalApi.IRepositoryService;
 using DO;
 
 namespace DalApi.IEntityDal;
-public interface IBranch : ICrud<Branch>
+public interface IBranch : IRepositoryService<Branch>
 {
 
 }

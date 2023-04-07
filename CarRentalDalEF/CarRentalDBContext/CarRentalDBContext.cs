@@ -18,6 +18,7 @@ public class CarRentalDBContext : DbContext
     public virtual DbSet<CustomerPayment> CustomerPayments { get; set; }
     public virtual DbSet<Location> Locations { get; set; }
 
+    // לדרוס את הפונקציות של הוספה וכו ולהוסיף שמירה בתוכן ולאחר מכן למחוק.
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     => modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetEntryAssembly());
 

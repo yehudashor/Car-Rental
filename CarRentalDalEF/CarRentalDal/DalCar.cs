@@ -1,9 +1,9 @@
-﻿using CrudBase;
+﻿using RepositoryServiceBase;
 using DO;
 using IEntityDal;
 
 namespace CarRentalDal;
 
-public class DalCar : EFCrudBase<Car, CarRentalDBContext.CarRentalDBContext>, ICar
+public class DalCar : RepositoryServiceBase<Car, CarRentalDBContext.CarRentalDBContext>, ICar
 {
 }

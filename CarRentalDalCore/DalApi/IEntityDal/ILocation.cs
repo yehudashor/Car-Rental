@@ -1,8 +1,8 @@
-﻿using DalApi.ICrud;
+﻿using DalApi.IRepositoryService;
 using DO;
 
 namespace IEntityDal;
 
-public interface ILocation : ICrud<Location>
+public interface ILocation : IRepositoryService<Location>
 {
 }

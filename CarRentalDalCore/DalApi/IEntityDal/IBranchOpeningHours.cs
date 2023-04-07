@@ -1,8 +1,8 @@
-﻿using DalApi.ICrud;
+﻿using DalApi.IRepositoryService;
 using DO;
 
 namespace DalApi.IEntityDal;
 
-public interface IBranchOpeningHours : ICrud<BranchOpeningHours>
+public interface IBranchOpeningHours : IRepositoryService<BranchOpeningHours>
 {
 }

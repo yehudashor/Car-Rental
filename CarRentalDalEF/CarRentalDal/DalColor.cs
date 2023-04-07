@@ -1,9 +1,9 @@
-﻿using CrudBase;
+﻿using RepositoryServiceBase;
 using DO;
 using IEntityDal;
 
 namespace CarRentalDal;
 
-public class DalColor : EFCrudBase<CarColor, CarRentalDBContext.CarRentalDBContext>, ICarColor
+public class DalColor : RepositoryServiceBase<CarColor, CarRentalDBContext.CarRentalDBContext>, ICarColor
 {
 }

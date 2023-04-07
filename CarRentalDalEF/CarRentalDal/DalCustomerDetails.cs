@@ -1,11 +1,11 @@
-﻿using CrudBase;
-using DO;
+﻿using DO;
 using IEntityDal;
+using RepositoryServiceBase;
 
 namespace CarRentalDal;
 
 public class DalCustomerDetails :
-    EFCrudBase<CustomerDetails, CarRentalDBContext.CarRentalDBContext>,
+    RepositoryServiceBase<CustomerDetails, CarRentalDBContext.CarRentalDBContext>,
     ICustomerDetails
 {
 }

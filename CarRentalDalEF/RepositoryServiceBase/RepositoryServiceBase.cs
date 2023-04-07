@@ -1,11 +1,12 @@
-﻿using DalApi.ICrud;
-using DalApi.IEntity;
+﻿using DalApi.IEntity;
+using DalApi.IRepositoryService;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Linq.Expressions;
 
-namespace CrudBase;
+namespace RepositoryServiceBase;
 
-public class EFCrudBase<TEntity, TDBContext> : ICrud<TEntity>
+public class RepositoryServiceBase<TEntity, TDBContext> : IRepositoryService<TEntity>
     where TEntity : class, IEntity, new()
     where TDBContext : DbContext, new()
 {
@@ -23,6 +24,15 @@ public class EFCrudBase<TEntity, TDBContext> : ICrud<TEntity>
         using (TDBContext dBContext = new TDBContext())
         {
             dBContext.Remove(filter);
+            await dBContext.SaveChangesAsync();
+        }
+    }
+
+    public async Task Update(TEntity entity)
+    {
+        using (TDBContext dBContext = new TDBContext())
+        {
+            dBContext.Update(entity);
             await dBContext.SaveChangesAsync();
         }
     }
@@ -52,12 +62,21 @@ public class EFCrudBase<TEntity, TDBContext> : ICrud<TEntity>
         }
     }
 
-    public async Task Update(TEntity entity)
+    public async Task Reference(TEntity entity, params Expression<Func<TEntity, object>>[] expression)
     {
         using (TDBContext dBContext = new TDBContext())
         {
-            dBContext.Update(entity);
-            await dBContext.SaveChangesAsync();
+            EntityEntry < TEntity >
+             foreach (var item in collection)
+            {
+
+            }
+            dBContext.Entry(entity)
         }
+    }
+
+    public Task Collection(TEntity entity, params Expression<Func<TEntity, IEnumerable<object>>>[] expression)
+    {
+        throw new NotImplementedException();
     }
 }
