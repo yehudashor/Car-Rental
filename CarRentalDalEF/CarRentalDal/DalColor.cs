@@ -1,9 +1,9 @@
-﻿using RepositoryServiceBase;
-using DO;
+﻿using DataObjects;
+using EntityServiceBase;
 using IEntityDal;
 
 namespace CarRentalDal;
 
-public class DalColor : RepositoryServiceBase<CarColor, CarRentalDBContext.CarRentalDBContext>, ICarColor
+public class DalColor : EntityServiceBase<CarColor, CarRentalDBContext.CarRentalDBContext>, ICarColor
 {
 }

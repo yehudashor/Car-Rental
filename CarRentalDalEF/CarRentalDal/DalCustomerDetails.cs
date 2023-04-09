@@ -1,11 +1,11 @@
-﻿using DO;
+﻿using DataObjects;
+using EntityServiceBase;
 using IEntityDal;
-using RepositoryServiceBase;
 
 namespace CarRentalDal;
 
 public class DalCustomerDetails :
-    RepositoryServiceBase<CustomerDetails, CarRentalDBContext.CarRentalDBContext>,
+    EntityServiceBase<CustomerDetails, CarRentalDBContext.CarRentalDBContext>,
     ICustomerDetails
 {
 }

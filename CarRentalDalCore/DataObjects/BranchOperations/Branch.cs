@@ -1,6 +1,6 @@
 ﻿using DalApi.IEntity;
 
-namespace DO;
+namespace DataObjects;
 
 /// <summary>
 /// Represents a branch location for a car rental company.

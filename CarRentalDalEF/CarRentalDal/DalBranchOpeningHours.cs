@@ -1,10 +1,10 @@
-﻿using RepositoryServiceBase;
-using DalApi.IEntityDal;
-using DO;
+﻿using DalApi.IEntityDal;
+using DataObjects;
+using EntityServiceBase;
 
 namespace CarRentalDal
 {
-    public class DalBranchOpeningHours : RepositoryServiceBase<BranchOpeningHours, CarRentalDBContext.CarRentalDBContext>, IBranchOpeningHours
+    public class DalBranchOpeningHours : EntityServiceBase<BranchOpeningHours, CarRentalDBContext.CarRentalDBContext>, IBranchOpeningHours
     {
     }
 }

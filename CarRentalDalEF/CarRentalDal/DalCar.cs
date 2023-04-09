@@ -1,9 +1,9 @@
-﻿using RepositoryServiceBase;
-using DO;
+﻿using DataObjects;
+using EntityServiceBase;
 using IEntityDal;
 
 namespace CarRentalDal;
 
-public class DalCar : RepositoryServiceBase<Car, CarRentalDBContext.CarRentalDBContext>, ICar
+public class DalCar : EntityServiceBase<Car, CarRentalDBContext.CarRentalDBContext>, ICar
 {
 }

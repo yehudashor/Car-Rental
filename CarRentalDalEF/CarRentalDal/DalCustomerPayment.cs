@@ -1,9 +1,9 @@
-﻿using RepositoryServiceBase;
-using DalApi.IEntityDal;
-using DO;
+﻿using DalApi.IEntityDal;
+using DataObjects;
+using EntityServiceBase;
 
 namespace CarRentalDal;
 
-public class DalCustomerPayment : RepositoryServiceBase<CustomerPayment, CarRentalDBContext.CarRentalDBContext>, ICustomerPayment
+public class DalCustomerPayment : EntityServiceBase<CustomerPayment, CarRentalDBContext.CarRentalDBContext>, ICustomerPayment
 {
 }

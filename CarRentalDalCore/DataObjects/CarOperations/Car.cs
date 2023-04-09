@@ -1,6 +1,6 @@
 ﻿using DalApi.IEntity;
 
-namespace DO;
+namespace DataObjects;
 
 /// <summary>
 /// This class represents a car entity with its properties and relationships
@@ -28,9 +28,9 @@ public class Car : IEntity
     public int PublishYear { set; get; }
 
     /// <summary>
-    /// Number of doors the car has
+    /// Number of DataObjectsors the car has
     /// </summary>
-    public int NumOfDoors { set; get; }
+    public int NumOfDataObjectsors { set; get; }
 
     /// <summary>
     /// Number of seats the car has
@@ -53,22 +53,22 @@ public class Car : IEntity
     public Gearbox Gearbox { set; get; }
 
     /// <summary>
-    /// Collection of images of the car
+    /// Daily rental price for this car
+    /// </summary>
+    public double DayPrice { set; get; }
+
+    /// <summary>
+    /// LoadCollection of images of the car
     /// </summary>
     public ICollection<CarImage> Images { set; get; }
 
     /// <summary>
-    /// Collection of colors of the car.
+    /// LoadCollection of colors of the car.
     /// </summary>
     public ICollection<CarColor> Colors { set; get; }
 
     /// <summary>
-    /// Collection of car rentals of the car.
+    /// LoadCollection of car rentals of the car.
     /// </summary>
     public ICollection<CarRental> CarRentals { set; get; }
-
-    /// <summary>
-    /// Daily rental price for this car
-    /// </summary>
-    public double DayPrice { set; get; }
 }

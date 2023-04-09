@@ -1,10 +1,10 @@
-﻿using RepositoryServiceBase;
-using DalApi.IEntityDal;
-using DO;
+﻿using DalApi.IEntityDal;
+using DataObjects;
+using EntityServiceBase;
 
 namespace CarRentalDal;
 
-public class DalBranchLocation : RepositoryServiceBase<BranchLocation, CarRentalDBContext.CarRentalDBContext>, IBranchLocation
+public class DalBranchLocation : EntityServiceBase<BranchLocation, CarRentalDBContext.CarRentalDBContext>, IBranchLocation
 {
 
 }

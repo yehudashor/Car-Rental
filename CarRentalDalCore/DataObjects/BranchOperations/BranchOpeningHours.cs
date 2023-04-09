@@ -1,6 +1,6 @@
 ﻿using DalApi.IEntity;
 
-namespace DO;
+namespace DataObjects;
 
 // Represents the opening hours for a branch on a given day of the week.
 public class BranchOpeningHours : IEntity

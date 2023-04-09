@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disab,le</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="BLApi\" />
+    <Folder Include="DependencyInjection\AutoFac\" />
+    <Folder Include="ValidationRules\Fluent\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CarRentalDalCore\CarRentalDalCore.csproj" />
+  </ItemGroup>
+
+</Project>

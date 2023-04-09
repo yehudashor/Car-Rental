@@ -1,8 +1,8 @@
-﻿using DalApi.IRepositoryService;
-using DO;
+﻿using DalApi.IEntityService;
+using DataObjects;
 
 namespace IEntityDal;
 
-public interface ICarRental : IRepositoryService<CarRental>
+public interface ICarRental : IEntityService<CarRental>
 {
 }

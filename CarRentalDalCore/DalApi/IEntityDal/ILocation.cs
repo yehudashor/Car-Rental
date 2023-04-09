@@ -1,8 +1,8 @@
-﻿using DalApi.IRepositoryService;
-using DO;
+﻿using DalApi.IEntityService;
+using DataObjects;
 
 namespace IEntityDal;
 
-public interface ILocation : IRepositoryService<Location>
+public interface ILocation : IEntityService<Location>
 {
 }

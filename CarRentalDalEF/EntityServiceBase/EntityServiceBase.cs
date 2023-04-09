@@ -1,12 +1,12 @@
 ﻿using DalApi.IEntity;
-using DalApi.IRepositoryService;
+using DalApi.IEntityService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Linq.Expressions;
 
-namespace RepositoryServiceBase;
+namespace EntityServiceBase;
 
-public class RepositoryServiceBase<TEntity, TDBContext> : IRepositoryService<TEntity>
+public class EntityServiceBase<TEntity, TDBContext> : IEntityService<TEntity>
     where TEntity : class, IEntity, new()
     where TDBContext : DbContext, new()
 {
@@ -47,43 +47,54 @@ public class RepositoryServiceBase<TEntity, TDBContext> : IRepositoryService<TEn
     }
 
     public async Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter = null,
+        Expression<Func<TEntity, TEntity>> sort = null,
         params Expression<Func<TEntity, object>>[] includeProperties)
     {
         using (TDBContext dBContext = new TDBContext())
         {
-            DbSet<TEntity> entities = dBContext.Set<TEntity>();
-            IQueryable<TEntity> entitiesResult = filter is null ? entities.Select(e => e) : entities.Where(filter);
+            IQueryable<TEntity> entities = dBContext.Set<TEntity>().AsQueryable();
+
+            if (filter is not null)
+            {
+                entities = entities.Where(filter);
+            }
+
+            if (sort is not null)
+            {
+                entities = entities.OrderBy(sort);
+            }
 
             foreach (var includeProperty in includeProperties)
             {
-                entitiesResult = entitiesResult.Include(includeProperty);
+                entities = entities.Include(includeProperty);
             }
-            return await entitiesResult.ToListAsync();
+
+            return await entities.ToListAsync();
         }
     }
 
-    public async Task Reference(TEntity entity, params Expression<Func<TEntity, object>>[] loadObjects)
+    public async Task LoadObject(TEntity entity, params Expression<Func<TEntity, object>>[] loaDataObjectsbjects)
     {
         using (TDBContext dBContext = new TDBContext())
         {
             EntityEntry<TEntity> entityEntry = dBContext.Entry(entity);
 
-            foreach (var loadObject in loadObjects)
+            foreach (var loaDataObjectsbject in loaDataObjectsbjects)
             {
-                await entityEntry.Reference(loadObject).LoadAsync();
+                await entityEntry.Reference(loaDataObjectsbject).LoadAsync();
             }
         }
     }
 
-    public async Task Collection(TEntity entity, params Expression<Func<TEntity, IEnumerable<object>>>[] loadObjectsCollection)
+    public async Task LoadCollection(TEntity entity, params Expression<Func<TEntity, IEnumerable<object>>>[] loaDataObjectsbjectsCollection)
     {
         using (TDBContext dBContext = new TDBContext())
         {
             EntityEntry<TEntity> entityEntry = dBContext.Entry(entity);
 
-            foreach (var loadObjectCollection in loadObjectsCollection)
+            foreach (var loaDataObjectsbjectCollection in loaDataObjectsbjectsCollection)
             {
-                await entityEntry.Collection(loadObjectCollection).LoadAsync();
+                await entityEntry.Collection(loaDataObjectsbjectCollection).LoadAsync();
             }
         }
     }

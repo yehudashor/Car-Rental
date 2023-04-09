@@ -1,8 +1,8 @@
-﻿using DalApi.IRepositoryService;
-using DO;
+﻿using DalApi.IEntityService;
+using DataObjects;
 
 namespace DalApi.IEntityDal;
-public interface IBranch : IRepositoryService<Branch>
+public interface IBranch : IEntityService<Branch>
 {
 
 }

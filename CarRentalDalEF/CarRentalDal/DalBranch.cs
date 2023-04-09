@@ -1,9 +1,9 @@
-﻿using RepositoryServiceBase;
-using DalApi.IEntityDal;
-using DO;
+﻿using DalApi.IEntityDal;
+using DataObjects;
+using EntityServiceBase;
 
 namespace CarRentalDBContext.CarRentalDal;
 
-public class DalBranch : RepositoryServiceBase<Branch, CarRentalDBContext>, IBranch
+public class DalBranch : EntityServiceBase<Branch, CarRentalDBContext>, IBranch
 {
 }

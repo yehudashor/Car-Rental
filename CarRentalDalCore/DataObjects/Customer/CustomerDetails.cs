@@ -1,6 +1,6 @@
 ﻿using DalApi.IEntity;
 
-namespace DO;
+namespace DataObjects;
 
 /// <summary>
 /// Represents the details of a customer entity.
@@ -53,7 +53,7 @@ public class CustomerDetails : IEntity
     public Location Location { set; get; }
 
     /// <summary>
-    /// Collection of car rentals of the car.
+    /// LoadCollection of car rentals of the car.
     /// </summary>
     public ICollection<CarRental> CarRentals { set; get; }
 }

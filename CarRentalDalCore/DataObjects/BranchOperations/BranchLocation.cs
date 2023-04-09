@@ -1,6 +1,6 @@
 ﻿using DalApi.IEntity;
 
-namespace DO;
+namespace DataObjects;
 /// <summary>
 /// Represents a location of a branch for a business.
 /// </summary>

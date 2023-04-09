@@ -1,8 +1,8 @@
-﻿using DalApi.IRepositoryService;
-using DO;
+﻿using DalApi.IEntityService;
+using DataObjects;
 
 namespace IEntityDal;
 
-public interface ICreditCard : IRepositoryService<CreditCard>
+public interface ICreditCard : IEntityService<CreditCard>
 {
 }

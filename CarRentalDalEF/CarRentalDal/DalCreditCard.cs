@@ -1,9 +1,9 @@
-﻿using RepositoryServiceBase;
-using DO;
+﻿using DataObjects;
+using EntityServiceBase;
 using IEntityDal;
 
 namespace CarRentalDal;
 
-public class DalCreditCard : RepositoryServiceBase<CreditCard, CarRentalDBContext.CarRentalDBContext>, ICreditCard
+public class DalCreditCard : EntityServiceBase<CreditCard, CarRentalDBContext.CarRentalDBContext>, ICreditCard
 {
 }
