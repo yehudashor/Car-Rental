@@ -1,9 +1,8 @@
 ﻿
-namespace BusinessEntities.BranchEntities;
+namespace BusinessEntities;
 
-internal class BranchOpeningHours
+public class BranchOpeningHours
 {
-
     /// <summary>
     /// Foreign key and the first key part of the branch entity.
     /// </summary>

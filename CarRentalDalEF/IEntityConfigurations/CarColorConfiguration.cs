@@ -8,6 +8,10 @@ internal class CarColorConfiguration : IEntityTypeConfiguration<CarColor>
 {
     public void Configure(EntityTypeBuilder<CarColor> builder)
     {
-        builder.HasKey(cc => new { cc.CarId, cc.CarColorName });
+        builder.HasKey(cc => cc.CarColorId);
+
+        builder.HasMany(cc => cc.Cars)
+            .WithOne(c => c.CarColor)
+            .HasForeignKey(c => c.CarColorId);
     }
 }

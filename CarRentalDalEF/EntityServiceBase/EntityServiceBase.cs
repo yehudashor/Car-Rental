@@ -37,17 +37,19 @@ public class EntityServiceBase<TEntity, TDBContext> : IEntityService<TEntity>
         }
     }
 
-    public async Task<TEntity> Get(Expression<Func<TEntity, bool>> filter)
+    public async Task<TEntity> Get(Expression<Func<TEntity, bool>> filter,
+         params Expression<Func<TEntity, object>>[] includeProperties)
     {
         using (TDBContext dBContext = new TDBContext())
         {
             TEntity entity = await dBContext.Set<TEntity>().FindAsync(filter);
+
             return entity;
         }
     }
 
     public async Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter = null,
-        Expression<Func<TEntity, TEntity>> sort = null,
+        Expression<Func<TEntity, object>> sort = null,
         params Expression<Func<TEntity, object>>[] includeProperties)
     {
         using (TDBContext dBContext = new TDBContext())
@@ -64,16 +66,24 @@ public class EntityServiceBase<TEntity, TDBContext> : IEntityService<TEntity>
                 entities = entities.OrderBy(sort);
             }
 
-            foreach (var includeProperty in includeProperties)
-            {
-                entities = entities.Include(includeProperty);
-            }
+            entities = addIncludeProperties(includeProperties, entities);
 
             return await entities.ToListAsync();
         }
     }
 
-    public async Task LoadObject(TEntity entity, params Expression<Func<TEntity, object>>[] loaDataObjectsbjects)
+    //לשנות לאגריגציה
+    private static IQueryable<TEntity> addIncludeProperties(Expression<Func<TEntity, object>>[] includeProperties, IQueryable<TEntity> entities)
+    {
+        foreach (var includeProperty in includeProperties)
+        {
+            entities = entities.Include(includeProperty);
+        }
+
+        return entities;
+    }
+
+    public async Task LoadObjects(TEntity entity, params Expression<Func<TEntity, object>>[] loaDataObjectsbjects)
     {
         using (TDBContext dBContext = new TDBContext())
         {
@@ -82,19 +92,6 @@ public class EntityServiceBase<TEntity, TDBContext> : IEntityService<TEntity>
             foreach (var loaDataObjectsbject in loaDataObjectsbjects)
             {
                 await entityEntry.Reference(loaDataObjectsbject).LoadAsync();
-            }
-        }
-    }
-
-    public async Task LoadCollection(TEntity entity, params Expression<Func<TEntity, IEnumerable<object>>>[] loaDataObjectsbjectsCollection)
-    {
-        using (TDBContext dBContext = new TDBContext())
-        {
-            EntityEntry<TEntity> entityEntry = dBContext.Entry(entity);
-
-            foreach (var loaDataObjectsbjectCollection in loaDataObjectsbjectsCollection)
-            {
-                await entityEntry.Collection(loaDataObjectsbjectCollection).LoadAsync();
             }
         }
     }

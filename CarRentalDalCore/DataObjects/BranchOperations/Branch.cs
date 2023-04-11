@@ -27,3 +27,4 @@ public class Branch : IEntity
     /// </summary>
     public ICollection<CarRental> CarRentals { set; get; }
 }
+

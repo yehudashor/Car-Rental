@@ -1,11 +1,6 @@
-﻿using DalApi.IEntity;
+﻿namespace BusinessEntities;
 
-namespace DataObjects;
-
-/// <summary>
-/// This class represents a car entity with its properties and relationships
-/// </summary>
-public class Car : IEntity
+public class CarForCustomer
 {
     /// <summary>
     /// Unique identifier for the car
@@ -38,11 +33,6 @@ public class Car : IEntity
     public int KilometersNumber { set; get; }
 
     /// <summary>
-    /// Date of the last test the car has undergone
-    /// </summary>
-    public DateOnly LastTestDate { set; get; }
-
-    /// <summary>
     /// Gearbox type of the car (automatic or manual)
     /// </summary>
     public Gearbox Gearbox { set; get; }
@@ -52,28 +42,13 @@ public class Car : IEntity
     /// </summary>
     public double DayPrice { set; get; }
 
-    public int CarTypeId { get; set; }
-
     /// <summary>
-    /// The car Type.
+    /// Name of the car color CarTypeId.
     /// </summary>
-    public CarType CarType { get; set; }
-
-    public string CarColorId { get; set; }
-
-    /// <summary>
-    /// The car color.
-    /// </summary>
-    public CarColor CarColor { set; get; }
+    public string CarColor { set; get; }
 
     /// <summary>
     /// Collection of images of the car
     /// </summary>
     public ICollection<CarImage> Images { set; get; }
-
-    /// <summary>
-    /// Collection of car rentals of the car.
-    /// </summary>
-    public ICollection<CarRental> CarRentals { set; get; }
-
 }

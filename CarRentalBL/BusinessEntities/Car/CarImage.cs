@@ -1,7 +1,5 @@
 ﻿namespace BusinessEntities;
 
-public class Branch
+public class CarImage
 {
-
 }
-

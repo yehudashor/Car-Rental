@@ -5,7 +5,6 @@
 /// </summary>
 public enum Gearbox
 {
-
     Automatic, SemiAutomatic, Manual, Robotic
 }
 

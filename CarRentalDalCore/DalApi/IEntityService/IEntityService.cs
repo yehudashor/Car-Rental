@@ -7,10 +7,10 @@ public interface IEntityService<TEntity> where TEntity : class, IEntity.IEntity,
     Task Add(TEntity entity);
     Task Delete(Expression<Func<TEntity, bool>> filter);
     Task Update(TEntity entity);
-    Task<TEntity> Get(Expression<Func<TEntity, bool>> filter);
-    Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter = null,
-        Expression<Func<TEntity, TEntity>> sort = null,
+    Task<TEntity> Get(Expression<Func<TEntity, bool>> filter,
         params Expression<Func<TEntity, object>>[] includeProperties);
-    Task LoadObject(TEntity entity, params Expression<Func<TEntity, object>>[] loaDataObjectsbjects);
-    Task LoadCollection(TEntity entity, params Expression<Func<TEntity, IEnumerable<object>>>[] loaDataObjectsbjectsCollection);
+    Task<IEnumerable<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter = null,
+        Expression<Func<TEntity, object>> sort = null,
+        params Expression<Func<TEntity, object>>[] includeProperties);
+    Task LoadObjects(TEntity entity, params Expression<Func<TEntity, object>>[] loaDataObjectsbjects);
 }

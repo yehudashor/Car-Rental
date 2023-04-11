@@ -10,7 +10,7 @@ public class CarImage : IEntity
     /// <summary>
     /// Name of the car image
     /// </summary>
-    public string CarImageName { set; get; }
+    public string CarImageId { set; get; }
 
     /// <summary>
     /// Foreign key of the car this image belongs to

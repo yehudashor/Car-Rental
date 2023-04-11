@@ -2,26 +2,20 @@
 
 namespace DataObjects;
 
-
 /// <summary>
-/// This class represents a color option for a car
+/// This class represents a color option for a cars
 /// </summary>
 public class CarColor : IEntity
 {
     /// <summary>
-    /// Name of the car color
+    /// Name of the car color CarTypeId.
     /// </summary>
-    public string CarColorName { set; get; }
+    public string CarColorId { set; get; }
 
     /// <summary>
-    /// Foreign key of the car this color belongs to
+    /// Collection of cars with this color.
     /// </summary>
-    public int CarId { set; get; }
-
-    /// <summary>
-    /// Navigation property to the car this color belongs to
-    /// </summary>
-    public Car Car { set; get; }
+    public ICollection<Car> Cars { get; set; }
 }
 
 

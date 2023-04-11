@@ -15,11 +15,6 @@ internal class CarConfiguration : IEntityTypeConfiguration<Car>
             .HasForeignKey(c => c.CarId)
               .OnDelete(DeleteBehavior.Cascade);
 
-        builder.HasMany(c => c.Colors)
-          .WithOne(c => c.Car)
-          .HasForeignKey(c => c.CarId)
-            .OnDelete(DeleteBehavior.Cascade);
-
         builder.HasMany(c => c.CarRentals)
          .WithOne(c => c.Car)
          .HasForeignKey(c => c.CarId)

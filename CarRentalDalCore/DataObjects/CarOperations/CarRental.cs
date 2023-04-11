@@ -55,17 +55,17 @@ public class CarRental : IEntity
     /// <summary>
     /// The date of the rental order.
     /// </summary>
-    public DateTime OrderDate { set; get; }
+    public DateTime OrderDate { set; get; } = DateTime.Now;
 
     /// <summary>
     /// The start date of the rental period.
     /// </summary>
-    public DateTime RentalStart { set; get; }
+    public DateTime CollectionTime { set; get; }
 
     /// <summary>
     /// The end date of the rental period.
     /// </summary>
-    public DateTime RentalEnd { set; get; }
+    public DateTime ReturnTime { set; get; }
 
     /// <summary>
     /// The rental price per day.
