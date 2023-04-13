@@ -25,7 +25,6 @@ public class CarRentalDBContext : DbContext
 
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
     {
-        base.ConfigureConventions(configurationBuilder);
         configurationBuilder.IgnoreAny<IEntity>();
         configurationBuilder.Properties<string>().HaveMaxLength(50);
     }
