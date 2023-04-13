@@ -1,6 +1,6 @@
 ﻿namespace BusinessEntities;
 
-public class CarForCustomer
+public class Car
 {
     /// <summary>
     /// Unique identifier for the car

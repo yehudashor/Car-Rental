@@ -2,8 +2,8 @@
 
 public class RentalRequest
 {
-    public Branch CollectionBranch { get; set; }
-    public Branch ReturnBranch { get; set; }
+    public BranchBase CollectionBranch { get; set; }
+    public BranchBase ReturnBranch { get; set; }
 
     /// <summary>
     /// The start date of the rental period.

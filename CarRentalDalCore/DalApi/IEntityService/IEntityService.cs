@@ -5,6 +5,7 @@ namespace DalApi.IEntityService;
 public interface IEntityService<TEntity> where TEntity : class, IEntity.IEntity, new()
 {
     Task Add(TEntity entity);
+    Task AddRange(params TEntity[] entities);
     Task Delete(Expression<Func<TEntity, bool>> filter);
     Task Update(TEntity entity);
     Task<TEntity> Get(Expression<Func<TEntity, bool>> filter,

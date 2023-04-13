@@ -2,6 +2,6 @@
 
 public class PriceOffer
 {
-    public CarForCustomer Car { get; set; }
+    public Car Car { get; set; }
 
 }

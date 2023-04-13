@@ -20,6 +20,15 @@ public class EntityServiceBase<TEntity, TDBContext> : IEntityService<TEntity>
         }
     }
 
+    public async Task AddRange(params TEntity[] entities)
+    {
+        using (TDBContext dBContext = new TDBContext())
+        {
+            await dBContext.AddRangeAsync(entities);
+            await dBContext.SaveChangesAsync();
+        }
+    }
+
     public async Task Delete(Expression<Func<TEntity, bool>> filter)
     {
         using (TDBContext dBContext = new TDBContext())
