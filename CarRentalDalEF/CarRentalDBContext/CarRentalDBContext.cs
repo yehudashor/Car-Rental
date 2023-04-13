@@ -1,4 +1,5 @@
-﻿using DataObjects;
+﻿using DalApi.IEntity;
+using DataObjects;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -21,5 +22,11 @@ public class CarRentalDBContext : DbContext
     // לדרוס את הפונקציות של הוספה וכו ולהוסיף שמירה בתוכן ולאחר מכן למחוק.
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     => modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetEntryAssembly());
+
+    protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+    {
+        configurationBuilder.IgnoreAny<IEntity>();
+        configurationBuilder.Properties<string>().HaveMaxLength(50);
+    }
 
 }
