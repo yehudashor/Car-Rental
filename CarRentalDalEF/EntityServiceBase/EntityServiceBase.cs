@@ -2,6 +2,7 @@
 using DalApi.IEntityService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace EntityServiceBase;
@@ -72,16 +73,10 @@ public class EntityServiceBase<TEntity, TDBContext> : IEntityService<TEntity>
         }
     }
 
-    //לשנות לאגריגציה
-    private static IQueryable<TEntity> addIncludeProperties(Expression<Func<TEntity, object>>[] includeProperties, IQueryable<TEntity> entities)
-    {
-        foreach (var includeProperty in includeProperties)
-        {
-            entities = entities.Include(includeProperty);
-        }
+    private IQueryable<TEntity> addIncludeProperties(Expression<Func<TEntity, object>>[] includeProperties, IQueryable<TEntity> entities) =>
 
-        return entities;
-    }
+         includeProperties.Aggregate(entities, (entitiesResult, includeProperty) => entitiesResult.Include(includeProperty));
+
 
     public async Task LoadObjects(TEntity entity, params Expression<Func<TEntity, object>>[] loaDataObjectsbjects)
     {
@@ -93,6 +88,30 @@ public class EntityServiceBase<TEntity, TDBContext> : IEntityService<TEntity>
             {
                 await entityEntry.Reference(loaDataObjectsbject).LoadAsync();
             }
+        }
+    }
+
+    public async Task<bool> Any(Expression<Func<TEntity, bool>> any_match)
+    {
+        using (TDBContext dBContext = new TDBContext())
+        {
+            return await dBContext.Set<TEntity>().AnyAsync(any_match);
+        }
+    }
+
+    public async Task<bool> All(Expression<Func<TEntity, bool>> check_all)
+    {
+        using (TDBContext dBContext = new TDBContext())
+        {
+            return await dBContext.Set<TEntity>().AllAsync(check_all);
+        }
+    }
+
+    public async Task<int> Count(Expression<Func<TEntity, bool>> sum)
+    {
+        using (TDBContext dBContext = new TDBContext())
+        {
+            return await dBContext.Set<TEntity>().CountAsync(sum);
         }
     }
 }

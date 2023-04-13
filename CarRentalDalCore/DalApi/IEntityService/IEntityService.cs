@@ -13,4 +13,8 @@ public interface IEntityService<TEntity> where TEntity : class, IEntity.IEntity,
         Expression<Func<TEntity, object>> sort = null,
         params Expression<Func<TEntity, object>>[] includeProperties);
     Task LoadObjects(TEntity entity, params Expression<Func<TEntity, object>>[] loaDataObjectsbjects);
+
+    Task<bool> Any(Expression<Func<TEntity, bool>> any_match);
+    Task<bool> All(Expression<Func<TEntity, bool>> check_all);
+    Task<int> Count(Expression<Func<TEntity, bool>> sum);
 }
