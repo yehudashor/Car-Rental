@@ -91,27 +91,27 @@ public class EntityServiceBase<TEntity, TDBContext> : IEntityService<TEntity>
         }
     }
 
-    public async Task<bool> Any(Expression<Func<TEntity, bool>> any_match)
+    public async Task<bool> Any(Expression<Func<TEntity, bool>> anyMatch)
     {
         using (TDBContext dBContext = new TDBContext())
         {
-            return await dBContext.Set<TEntity>().AnyAsync(any_match);
+            return await dBContext.Set<TEntity>().AnyAsync(anyMatch);
         }
     }
 
-    public async Task<bool> All(Expression<Func<TEntity, bool>> check_all)
+    public async Task<bool> All(Expression<Func<TEntity, bool>> checkAll)
     {
         using (TDBContext dBContext = new TDBContext())
         {
-            return await dBContext.Set<TEntity>().AllAsync(check_all);
+            return await dBContext.Set<TEntity>().AllAsync(checkAll);
         }
     }
 
-    public async Task<int> Count(Expression<Func<TEntity, bool>> sum)
+    public async Task<long> Count(Expression<Func<TEntity, bool>> count)
     {
         using (TDBContext dBContext = new TDBContext())
         {
-            return await dBContext.Set<TEntity>().CountAsync(sum);
+            return await dBContext.Set<TEntity>().CountAsync(count);
         }
     }
 }
