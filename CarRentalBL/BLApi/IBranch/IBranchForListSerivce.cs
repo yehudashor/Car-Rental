@@ -4,7 +4,8 @@ namespace BLApi;
 
 public interface IBranchForListSerivce
 {
-    Task<IEnumerable<BranchForList>> GetAllBranchForList(Func<BranchForList, bool> filter);
+    event Action<IEnumerable<BranchForList>> OnOpenCloseChange;
+    Task<IEnumerable<BranchForList>> GetAllBranchForList(Func<BranchForList, bool> filter = null);
     Task<IEnumerable<BranchForList>> GetAllBranchForListByCountry(string country);
 
 }
