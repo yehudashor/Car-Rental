@@ -28,5 +28,10 @@ public class Branch : IEntity
     /// The cars currently available at the branch, including those that are currently rented out.
     /// </summary>
     public ICollection<CarRental> CarRentals { set; get; }
+
+    /// <summary>
+    /// opening hours events of this branch.
+    /// </summary>
+    public ICollection<BranchOpeningHoursEvent> BranchOpeningHoursEvents { set; get; }
 }
 

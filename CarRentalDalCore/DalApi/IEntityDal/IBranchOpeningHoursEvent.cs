@@ -3,6 +3,6 @@ using DataObjects;
 
 namespace DalApi.IEntityDal;
 
-public interface IBranchOpeningHours : IEntityService<BranchOpeningHours>
+public interface IBranchOpeningHoursEvent : IEntityService<BranchOpeningHoursEvent>
 {
 }

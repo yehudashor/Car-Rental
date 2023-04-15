@@ -62,7 +62,7 @@ public class BranchForListSerivce : IBranchForListSerivce
                     OpenClose previousOpenClose = branchForList.Value.OpenClose;
                     branchForList.Value.OpenClose = await _ibranchOpeningHoursService.IsOpenOrClose(branchForList.Value.BranchId, DateTime.Now);
 
-                    if(previousOpenClose != branchForList.Value.OpenClose)
+                    if (previousOpenClose != branchForList.Value.OpenClose)
                     {
                         wasChange = true;
                     }

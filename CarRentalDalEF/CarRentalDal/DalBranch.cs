@@ -2,8 +2,8 @@
 using DataObjects;
 using EntityServiceBase;
 
-namespace CarRentalDBContext.CarRentalDal;
+namespace CarRentalDal;
 
-public class DalBranch : EntityServiceBase<Branch, CarRentalDBContext>, IBranch
+public class DalBranch : EntityServiceBase<Branch, CarRentalDBContext.CarRentalDBContext>, IBranch
 {
 }

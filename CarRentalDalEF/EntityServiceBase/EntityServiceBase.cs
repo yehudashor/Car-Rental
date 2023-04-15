@@ -2,7 +2,6 @@
 using DalApi.IEntityService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System.Linq;
 using System.Linq.Expressions;
 
 namespace EntityServiceBase;

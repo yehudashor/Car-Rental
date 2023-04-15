@@ -15,3 +15,10 @@ public enum CurrentlyInRented
 {
     Yes, No
 }
+
+
+public enum OpenClose
+{
+    Open,
+    Close
+}

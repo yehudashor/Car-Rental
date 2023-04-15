@@ -10,6 +10,8 @@ public class CarRentalDBContext : DbContext
     public virtual DbSet<Branch> Branches { get; set; }
     public virtual DbSet<BranchOpeningHours> BranchesOpeningHours { get; set; }
     public virtual DbSet<BranchLocation> BranchesLocations { get; set; }
+
+    public virtual DbSet<BranchOpeningHoursEvent> BranchOpeningHoursEvents { get; set; }
     public virtual DbSet<Car> Cars { get; set; }
     public virtual DbSet<CarColor> CarColors { get; set; }
     public virtual DbSet<CarImage> CarImages { get; set; }

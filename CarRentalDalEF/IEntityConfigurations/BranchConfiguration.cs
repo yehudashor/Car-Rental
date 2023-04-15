@@ -24,5 +24,10 @@ internal class BranchConfiguration : IEntityTypeConfiguration<Branch>
             .WithOne(b => b.Branch)
             .HasForeignKey(b => b.BranchId)
             .OnDelete(DeleteBehavior.NoAction);
+
+        builder.HasMany(b => b.BranchOpeningHoursEvents)
+            .WithOne(b => b.Branch)
+            .HasForeignKey(b => b.BranchId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }
