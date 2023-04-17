@@ -10,9 +10,9 @@ public class BranchForListSerivce : IBranchForListSerivce
 {
     private Dictionary<int, BranchForList> _branchForLists;
 
-    private readonly IBranch _ibranch;
+    private readonly IBranch _branch;
 
-    private readonly IBranchOpeningHoursService _ibranchOpeningHoursService;
+    private readonly IBranchOpeningHoursService _branchOpeningHoursService;
 
     private readonly IValidator _validator;
 
@@ -28,8 +28,8 @@ public class BranchForListSerivce : IBranchForListSerivce
 
     public BranchForListSerivce(IBranch ibranch, IBranchOpeningHoursService ibranchOpeningHoursService, IValidator validator, IMapper mapper)
     {
-        _ibranch = ibranch;
-        _ibranchOpeningHoursService = ibranchOpeningHoursService;
+        _branch = ibranch;
+        _branchOpeningHoursService = ibranchOpeningHoursService;
         _validator = validator;
         _mapper = mapper;
     }
@@ -39,7 +39,7 @@ public class BranchForListSerivce : IBranchForListSerivce
         //לטפל במילון ןלהוסיף תתיאור של העיר והרחוב
         if (_branchForLists is null)
         {
-            IEnumerable<DataObjects.Branch> branches = await _ibranch.GetAll(sort: b => b.BranchLocation.Location.City,
+            IEnumerable<DataObjects.Branch> branches = await _branch.GetAll(sort: b => b.BranchLocation.Location.City,
                        includeProperties: b => b.BranchLocation.Location);
 
             _branchForLists = _mapper.Map<IEnumerable<BranchForList>>(branches).Where(filter).ToDictionary(bfl => bfl.BranchId);
@@ -60,7 +60,7 @@ public class BranchForListSerivce : IBranchForListSerivce
                 foreach (var branchForList in _branchForLists)
                 {
                     OpenClose previousOpenClose = branchForList.Value.OpenClose;
-                    branchForList.Value.OpenClose = await _ibranchOpeningHoursService.IsOpenOrClose(branchForList.Value.BranchId, DateTime.Now);
+                    branchForList.Value.OpenClose = await _branchOpeningHoursService.IsOpenOrClose(branchForList.Value.BranchId, DateTime.Now);
 
                     if (previousOpenClose != branchForList.Value.OpenClose)
                     {
