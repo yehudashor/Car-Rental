@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BLApi;
 using BusinessEntities;
+using CarRentalBL.BLApi.IBranch.IOpeningHoursService;
 using DalApi.IEntityDal;
 using FluentValidation;
 

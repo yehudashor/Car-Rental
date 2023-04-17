@@ -3,7 +3,6 @@ using BLApi;
 using BusinessEntities;
 using DalApi.IEntityDal;
 using FluentValidation;
-
 namespace BLImplemention;
 
 public class BranchForListSerivce : IBranchForListSerivce
@@ -17,6 +16,8 @@ public class BranchForListSerivce : IBranchForListSerivce
     private readonly IValidator _validator;
 
     private readonly IMapper _mapper;
+
+    private readonly System.Timers.Timer _timer;
 
     private event Action<IEnumerable<BranchForList>> _onOpenCloseChange;
 
@@ -32,6 +33,12 @@ public class BranchForListSerivce : IBranchForListSerivce
         _ibranchOpeningHoursService = ibranchOpeningHoursService;
         _validator = validator;
         _mapper = mapper;
+
+        _timer = new System.Timers.Timer(600000)
+        {
+            AutoReset = true,
+        };
+        _timer.Elapsed += (sender, e) => onOpenClose();
     }
 
     public async Task<IEnumerable<BranchForList>> GetAllBranchForList(Func<BranchForList, bool> filter = null)
@@ -39,43 +46,35 @@ public class BranchForListSerivce : IBranchForListSerivce
         //לטפל במילון ןלהוסיף תתיאור של העיר והרחוב
         if (_branchForLists is null)
         {
-            IEnumerable<DataObjects.Branch> branches = await _ibranch.GetAll(sort: b => b.BranchLocation.Location.City,
+            var branches = await _ibranch.GetAll(sort: b => b.BranchLocation.Location.City,
                        includeProperties: b => b.BranchLocation.Location);
 
             _branchForLists = _mapper.Map<IEnumerable<BranchForList>>(branches).Where(filter).ToDictionary(bfl => bfl.BranchId);
-            onOpenClose();
+
+            _timer.Start();
         }
         return _branchForLists.Values;
     }
 
-    private void onOpenClose()
+    private async void onOpenClose()
     {
-        //לשנות לטיימר
-        Thread thread = new Thread(async () =>
+        bool wasChange = false;
+
+        foreach (var branchForList in _branchForLists)
         {
-            while (true)
+            OpenClose previousOpenClose = branchForList.Value.OpenClose;
+            branchForList.Value.OpenClose = await _ibranchOpeningHoursService.IsOpenOrClose(branchForList.Value.BranchId, DateTime.Now);
+
+            if (previousOpenClose != branchForList.Value.OpenClose)
             {
-                bool wasChange = false;
-
-                foreach (var branchForList in _branchForLists)
-                {
-                    OpenClose previousOpenClose = branchForList.Value.OpenClose;
-                    branchForList.Value.OpenClose = await _ibranchOpeningHoursService.IsOpenOrClose(branchForList.Value.BranchId, DateTime.Now);
-
-                    if (previousOpenClose != branchForList.Value.OpenClose)
-                    {
-                        wasChange = true;
-                    }
-                }
-
-                if (wasChange)
-                {
-                    //לעורר את האירוע עי הןספה מתודות הרחבה
-                }
-                Thread.Sleep(60000);
+                wasChange = true;
             }
-        });
-        thread.Start();
+        }
+
+        if (wasChange)
+        {
+            //לעורר את האירוע עי הןספה מתודות הרחבה
+        }
     }
 
     public Task<IEnumerable<BranchForList>> GetAllBranchForListByCountry(string country)

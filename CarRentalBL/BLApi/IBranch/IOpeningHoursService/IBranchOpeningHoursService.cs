@@ -13,4 +13,6 @@ public interface IBranchOpeningHoursService
     Task Update(BranchOpeningHours branchOpeningHours);
 
     Task<OpenClose> IsOpenOrClose(int branchId, DateTime dateTime);
+
+    IOpenOrCloseService OpenOrCloseService { set; }
 }
