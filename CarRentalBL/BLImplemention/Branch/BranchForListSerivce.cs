@@ -9,9 +9,9 @@ public class BranchForListSerivce : IBranchForListSerivce
 {
     private Dictionary<int, BranchForList> _branchForLists;
 
-    private readonly IBranch _ibranch;
+    private readonly IBranch _branch;
 
-    private readonly IBranchOpeningHoursService _ibranchOpeningHoursService;
+    private readonly IBranchOpeningHoursService _branchOpeningHoursService;
 
     private readonly IValidator _validator;
 
@@ -29,8 +29,8 @@ public class BranchForListSerivce : IBranchForListSerivce
 
     public BranchForListSerivce(IBranch ibranch, IBranchOpeningHoursService ibranchOpeningHoursService, IValidator validator, IMapper mapper)
     {
-        _ibranch = ibranch;
-        _ibranchOpeningHoursService = ibranchOpeningHoursService;
+        _branch = ibranch;
+        _branchOpeningHoursService = ibranchOpeningHoursService;
         _validator = validator;
         _mapper = mapper;
 
@@ -60,10 +60,10 @@ public class BranchForListSerivce : IBranchForListSerivce
     {
         bool wasChange = false;
 
-        foreach (var branchForList in _branchForLists)
-        {
-            OpenClose previousOpenClose = branchForList.Value.OpenClose;
-            branchForList.Value.OpenClose = await _ibranchOpeningHoursService.IsOpenOrClose(branchForList.Value.BranchId, DateTime.Now);
+                foreach (var branchForList in _branchForLists)
+                {
+                    OpenClose previousOpenClose = branchForList.Value.OpenClose;
+                    branchForList.Value.OpenClose = await _ibranchOpeningHoursService.IsOpenOrClose(branchForList.Value.BranchId, DateTime.Now);
 
             if (previousOpenClose != branchForList.Value.OpenClose)
             {
