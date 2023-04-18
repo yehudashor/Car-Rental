@@ -1,6 +1,7 @@
-﻿using DalApi.IEntity;
+﻿using CarRentalDalCore.DalApi.IEntity;
+using CarRentalDalCore.DataObjects.CarOperations;
 
-namespace DataObjects;
+namespace CarRentalDalCore.DataObjects.Customer;
 
 /// <summary>
 /// Represents the payment details of a customer entity.

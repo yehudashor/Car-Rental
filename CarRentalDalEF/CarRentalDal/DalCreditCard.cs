@@ -1,9 +1,10 @@
-﻿using DataObjects;
-using EntityServiceBase;
-using IEntityDal;
+﻿using CarRentalDalCore.DalApi.IEntityDal;
+using CarRentalDalCore.DataObjects.Customer;
+using CarRentalDalEF.CarRentalDBContext;
+using CarRentalDalEF.EntityServiceBase;
 
-namespace CarRentalDal;
+namespace CarRentalDalEF.CarRentalDal;
 
-public class DalCreditCard : EntityServiceBase<CreditCard, CarRentalDBContext.CarRentalDBContext>, ICreditCard
+public class DalCreditCard : EntityServiceBase<CreditCard, CarRentalDBContext>, ICreditCard
 {
 }

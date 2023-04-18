@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
-using BLApi;
-using BusinessEntities;
-using DalApi.IEntityDal;
+using CarRentalBL.BLApi.IBranch;
+using CarRentalBL.BLApi.IBranch.IOpeningHoursService;
+using CarRentalBL.BusinessEntities.Branch;
+using CarRentalBL.BusinessEntities.Enums;
+using CarRentalDalCore.DalApi.IEntityDal;
 using FluentValidation;
-namespace BLImplemention;
+namespace CarRentalBL.BLImplemention.Branch;
 
 public class BranchForListSerivce : IBranchForListSerivce
 {
@@ -60,10 +62,10 @@ public class BranchForListSerivce : IBranchForListSerivce
     {
         bool wasChange = false;
 
-                foreach (var branchForList in _branchForLists)
-                {
-                    OpenClose previousOpenClose = branchForList.Value.OpenClose;
-                    branchForList.Value.OpenClose = await _ibranchOpeningHoursService.IsOpenOrClose(branchForList.Value.BranchId, DateTime.Now);
+        foreach (var branchForList in _branchForLists)
+        {
+            OpenClose previousOpenClose = branchForList.Value.OpenClose;
+            branchForList.Value.OpenClose = await _ibranchOpeningHoursService.IsOpenOrClose(branchForList.Value.BranchId, DateTime.Now);
 
             if (previousOpenClose != branchForList.Value.OpenClose)
             {

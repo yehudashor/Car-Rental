@@ -1,5 +1,4 @@
-﻿
-namespace BusinessEntities;
+﻿namespace CarRentalBL.BusinessEntities.Branch;
 
 public class BranchOpeningHours
 {

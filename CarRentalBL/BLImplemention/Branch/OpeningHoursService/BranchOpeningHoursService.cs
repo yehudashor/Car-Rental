@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
-using BLApi;
-using BusinessEntities;
-using DalApi.IEntityDal;
+using BLImplemention;
+using CarRentalBL.BLApi.IBranch.IOpeningHoursService;
+using CarRentalBL.BusinessEntities.Branch;
+using CarRentalBL.BusinessEntities.Enums;
+using CarRentalDalCore.DalApi.IEntityDal;
+using CarRentalDalCore.DataObjects.BranchOperations;
 using FluentValidation;
 
-namespace BLImplemention;
+namespace CarRentalBL.BLImplemention.Branch.OpeningHoursService;
 public class BranchOpeningHoursService : IBranchOpeningHoursService
 {
     public IOpenOrCloseService OpenOrCloseService
@@ -31,7 +34,7 @@ public class BranchOpeningHoursService : IBranchOpeningHoursService
 
     public async Task Add(params BranchOpeningHours[] branchOpeningHours)
     {
-        DataObjects.BranchOpeningHours[] branchOpeningHoursDo = _mapper.Map<DataObjects.BranchOpeningHours[]>(branchOpeningHours);
+        CarRentalDalCore.DataObjects.BranchOperations.BranchOpeningHours[] branchOpeningHoursDo = _mapper.Map<CarRentalDalCore.DataObjects.BranchOperations.BranchOpeningHours[]>(branchOpeningHours);
         await _branchOpeningHours.AddRange(branchOpeningHoursDo);
     }
 
@@ -60,7 +63,7 @@ public class BranchOpeningHoursService : IBranchOpeningHoursService
 
     public async Task Update(BranchOpeningHours branchOpeningHours)
     {
-        DataObjects.BranchOpeningHours branchOpeningHoursDo = _mapper.Map<DataObjects.BranchOpeningHours>(branchOpeningHours);
+        CarRentalDalCore.DataObjects.BranchOperations.BranchOpeningHours branchOpeningHoursDo = _mapper.Map<CarRentalDalCore.DataObjects.BranchOperations.BranchOpeningHours>(branchOpeningHours);
         await _branchOpeningHours.Update(branchOpeningHoursDo);
     }
 }

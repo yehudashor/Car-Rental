@@ -1,4 +1,4 @@
-﻿namespace BusinessEntities.PriceOffer;
+﻿namespace CarRentalBL.BusinessEntities.PriceOffer;
 
 public class PriceOffer
 {

@@ -1,6 +1,7 @@
-﻿using DalApi.IEntity;
+﻿using CarRentalDalCore.DalApi.IEntity;
+using CarRentalDalCore.DataObjects.Enums;
 
-namespace DataObjects;
+namespace CarRentalDalCore.DataObjects.BranchOperations;
 
 public class BranchOpeningHoursEvent : IEntity
 {

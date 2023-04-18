@@ -1,7 +1,8 @@
-﻿using BLApi;
-using BusinessEntities;
+﻿using CarRentalBL.BLApi.IBranch;
+using CarRentalBL.BLApi.IManager;
+using CarRentalBL.BusinessEntities.Branch;
 
-namespace BLImplemention;
+namespace CarRentalBL.BLImplemention.Manager;
 
 public class BranchForManagerService : IBranchForManagerService
 {

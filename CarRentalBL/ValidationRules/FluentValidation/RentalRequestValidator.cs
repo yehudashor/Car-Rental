@@ -1,7 +1,7 @@
-﻿using BusinessEntities;
+﻿using CarRentalBL.BusinessEntities.CarRental;
 using FluentValidation;
 
-namespace ValidationRules.FluentValidation;
+namespace CarRentalBL.ValidationRules.FluentValidation;
 
 internal class RentalRequestValidator : AbstractValidator<RentalRequest>
 {

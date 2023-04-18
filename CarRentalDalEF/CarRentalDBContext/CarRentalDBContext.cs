@@ -1,9 +1,12 @@
-﻿using DalApi.IEntity;
-using DataObjects;
+﻿using CarRentalDalCore.DalApi.IEntity;
+using CarRentalDalCore.DataObjects.BranchOperations;
+using CarRentalDalCore.DataObjects.CarOperations;
+using CarRentalDalCore.DataObjects.Customer;
+using CarRentalDalCore.DataObjects.Locations;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
-namespace CarRentalDBContext;
+namespace CarRentalDalEF.CarRentalDBContext;
 
 public class CarRentalDBContext : DbContext
 {

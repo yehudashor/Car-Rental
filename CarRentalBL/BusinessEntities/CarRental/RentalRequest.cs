@@ -1,4 +1,6 @@
-﻿namespace BusinessEntities;
+﻿using CarRentalBL.BusinessEntities.Branch;
+
+namespace CarRentalBL.BusinessEntities.CarRental;
 
 public class RentalRequest
 {

@@ -1,4 +1,4 @@
-﻿namespace DataObjects;
+﻿namespace CarRentalDalCore.DataObjects.Enums;
 
 /// <summary>
 /// 

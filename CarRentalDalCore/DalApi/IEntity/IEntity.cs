@@ -1,4 +1,4 @@
-﻿namespace DalApi.IEntity;
+﻿namespace CarRentalDalCore.DalApi.IEntity;
 
 public interface IEntity
 {

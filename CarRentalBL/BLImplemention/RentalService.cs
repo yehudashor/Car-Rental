@@ -1,9 +1,9 @@
-﻿using BLApi;
-using BusinessEntities;
+﻿using CarRentalBL.BLApi;
+using CarRentalBL.BusinessEntities.CarRental;
+using CarRentalDalCore.DalApi.IEntityDal;
 using FluentValidation;
-using IEntityDal;
 
-namespace BLImplemention;
+namespace CarRentalBL.BLImplemention;
 public class RentalService : IRentalService
 {
     private readonly IValidator _validator;

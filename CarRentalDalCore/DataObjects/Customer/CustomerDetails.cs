@@ -1,6 +1,8 @@
-﻿using DalApi.IEntity;
+﻿using CarRentalDalCore.DalApi.IEntity;
+using CarRentalDalCore.DataObjects.CarOperations;
+using CarRentalDalCore.DataObjects.Locations;
 
-namespace DataObjects;
+namespace CarRentalDalCore.DataObjects.Customer;
 
 /// <summary>
 /// Represents the details of a customer entity.

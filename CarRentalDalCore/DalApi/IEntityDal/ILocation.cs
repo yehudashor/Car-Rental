@@ -1,7 +1,7 @@
-﻿using DalApi.IEntityService;
-using DataObjects;
+﻿using CarRentalDalCore.DalApi.IEntityService;
+using CarRentalDalCore.DataObjects.Locations;
 
-namespace IEntityDal;
+namespace CarRentalDalCore.DalApi.IEntityDal;
 
 public interface ILocation : IEntityService<Location>
 {

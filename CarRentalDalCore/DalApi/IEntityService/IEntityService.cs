@@ -1,6 +1,6 @@
-﻿ using System.Linq.Expressions; 
+﻿using System.Linq.Expressions;
 
-namespace DalApi.IEntityService;
+namespace CarRentalDalCore.DalApi.IEntityService;
 
 public interface IEntityService<TEntity> where TEntity : class, IEntity.IEntity, new()
 {

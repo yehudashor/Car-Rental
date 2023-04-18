@@ -1,6 +1,7 @@
-﻿using DalApi.IEntity;
+﻿using CarRentalDalCore.DalApi.IEntity;
+using CarRentalDalCore.DataObjects.CarOperations;
 
-namespace DataObjects;
+namespace CarRentalDalCore.DataObjects.BranchOperations;
 
 /// <summary>
 /// Represents a branch location for a car rental company.

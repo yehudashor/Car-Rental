@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using BLApi;
-using BusinessEntities;
+using CarRentalBL.BLApi.IBranch;
 using CarRentalBL.BLApi.IBranch.IOpeningHoursService;
-using DalApi.IEntityDal;
+using CarRentalBL.BusinessEntities.Branch;
+using CarRentalDalCore.DalApi.IEntityDal;
 using FluentValidation;
 
 namespace CarRentalBL.BLImplemention.Branch;

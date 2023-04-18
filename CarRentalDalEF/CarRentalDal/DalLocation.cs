@@ -1,9 +1,10 @@
-﻿using DataObjects;
-using EntityServiceBase;
-using IEntityDal;
+﻿using CarRentalDalCore.DalApi.IEntityDal;
+using CarRentalDalCore.DataObjects.Locations;
+using CarRentalDalEF.CarRentalDBContext;
+using CarRentalDalEF.EntityServiceBase;
 
-namespace CarRentalDal;
+namespace CarRentalDalEF.CarRentalDal;
 
-public class DalLocation : EntityServiceBase<Location, CarRentalDBContext.CarRentalDBContext>, ILocation
+public class DalLocation : EntityServiceBase<Location, CarRentalDBContext>, ILocation
 {
 }

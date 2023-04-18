@@ -1,7 +1,6 @@
-﻿
-using DalApi.IEntity;
+﻿using CarRentalDalCore.DalApi.IEntity;
 
-namespace DataObjects;
+namespace CarRentalDalCore.DataObjects.CarOperations;
 
 public class CarType : IEntity
 {

@@ -1,6 +1,7 @@
-﻿using DalApi.IEntity;
+﻿using CarRentalDalCore.DalApi.IEntity;
+using CarRentalDalCore.DataObjects.Locations;
 
-namespace DataObjects;
+namespace CarRentalDalCore.DataObjects.BranchOperations;
 /// <summary>
 /// Represents a location of a branch for a business.
 /// </summary>

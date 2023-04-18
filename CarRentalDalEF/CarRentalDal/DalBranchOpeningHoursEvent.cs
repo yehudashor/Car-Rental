@@ -1,6 +1,6 @@
-﻿using DalApi.IEntityDal;
-using DataObjects;
-using EntityServiceBase;
+﻿using CarRentalDalCore.DalApi.IEntityDal;
+using CarRentalDalCore.DataObjects.BranchOperations;
+using CarRentalDalEF.EntityServiceBase;
 
 namespace CarRentalDalEF.CarRentalDal
 {
