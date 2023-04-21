@@ -1,6 +1,6 @@
-﻿using DalApi.IEntity;
+﻿using CarRentalDalCore.DalApi.IEntity;
 
-namespace DataObjects;
+namespace CarRentalDalCore.DataObjects.BranchOperations;
 
 // Represents the opening hours for a branch on a given day of the week.
 public class BranchOpeningHours : IEntity

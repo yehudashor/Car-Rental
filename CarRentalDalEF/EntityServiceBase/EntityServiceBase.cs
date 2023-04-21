@@ -1,10 +1,10 @@
-﻿using DalApi.IEntity;
-using DalApi.IEntityService;
+﻿using CarRentalDalCore.DalApi.IEntity;
+using CarRentalDalCore.DalApi.IEntityService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Linq.Expressions;
 
-namespace EntityServiceBase;
+namespace CarRentalDalEF.EntityServiceBase;
 
 public class EntityServiceBase<TEntity, TDBContext> : IEntityService<TEntity>
     where TEntity : class, IEntity, new()

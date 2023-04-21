@@ -1,6 +1,7 @@
-﻿using System.Text;
+﻿using CarRentalBL.BusinessEntities.Enums;
+using System.Text;
 
-namespace BusinessEntities;
+namespace CarRentalBL.BusinessEntities.Branch;
 
 public class BranchForList
 {

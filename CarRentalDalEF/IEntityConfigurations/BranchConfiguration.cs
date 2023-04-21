@@ -1,8 +1,8 @@
-﻿using DataObjects;
+﻿using CarRentalDalCore.DataObjects.BranchOperations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace IEntityConfigurations;
+namespace CarRentalDalEF.IEntityConfigurations;
 
 internal class BranchConfiguration : IEntityTypeConfiguration<Branch>
 {

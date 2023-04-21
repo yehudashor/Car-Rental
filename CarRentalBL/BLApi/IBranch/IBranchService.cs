@@ -1,8 +1,6 @@
-﻿
+﻿using CarRentalBL.BusinessEntities.Branch;
 
-using BusinessEntities;
-
-namespace BLApi;
+namespace CarRentalBL.BLApi.IBranch;
 
 public interface IBranchService
 {

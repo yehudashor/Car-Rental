@@ -1,7 +1,7 @@
-﻿using DalApi.IEntityService;
-using DataObjects;
+﻿using CarRentalDalCore.DalApi.IEntityService;
+using CarRentalDalCore.DataObjects.BranchOperations;
 
-namespace DalApi.IEntityDal;
+namespace CarRentalDalCore.DalApi.IEntityDal;
 
 public interface IBranchLocation : IEntityService<BranchLocation>
 {

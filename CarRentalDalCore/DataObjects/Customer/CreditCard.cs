@@ -1,6 +1,6 @@
-﻿using DalApi.IEntity;
+﻿using CarRentalDalCore.DalApi.IEntity;
 
-namespace DataObjects;
+namespace CarRentalDalCore.DataObjects.Customer;
 
 /// <summary>
 /// Represents a credit card entity.

@@ -1,6 +1,9 @@
-﻿using DalApi.IEntity;
+﻿using CarRentalDalCore.DalApi.IEntity;
+using CarRentalDalCore.DataObjects.BranchOperations;
+using CarRentalDalCore.DataObjects.Customer;
+using CarRentalDalCore.DataObjects.Enums;
 
-namespace DataObjects;
+namespace CarRentalDalCore.DataObjects.CarOperations;
 
 /// <summary>
 /// Represents a car rental transaction.

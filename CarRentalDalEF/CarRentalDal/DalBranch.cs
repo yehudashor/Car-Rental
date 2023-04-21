@@ -1,9 +1,10 @@
-﻿using DalApi.IEntityDal;
-using DataObjects;
-using EntityServiceBase;
+﻿using CarRentalDalCore.DalApi.IEntityDal;
+using CarRentalDalCore.DataObjects.BranchOperations;
+using CarRentalDalEF.CarRentalDBContext;
+using CarRentalDalEF.EntityServiceBase;
 
-namespace CarRentalDal;
+namespace CarRentalDalEF.CarRentalDal;
 
-public class DalBranch : EntityServiceBase<Branch, CarRentalDBContext.CarRentalDBContext>, IBranch
+public class DalBranch : EntityServiceBase<Branch, CarRentalDBContext>, IBranch
 {
 }

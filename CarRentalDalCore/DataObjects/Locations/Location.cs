@@ -1,6 +1,6 @@
-﻿using DalApi.IEntity;
+﻿using CarRentalDalCore.DalApi.IEntity;
 
-namespace DataObjects;
+namespace CarRentalDalCore.DataObjects.Locations;
 
 /// <summary>
 /// Represents a location on Earth.

@@ -1,7 +1,8 @@
-﻿using BLApi;
-using BusinessEntities;
+﻿using CarRentalBL.BLApi.IBranch;
+using CarRentalBL.BLApi.ICustomer;
+using CarRentalBL.BusinessEntities.Branch;
 
-namespace BLImplemention;
+namespace CarRentalBL.BLImplemention.Customer;
 
 public class BranchForCustomerService : IBranchForCustomerService
 {

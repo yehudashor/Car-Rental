@@ -1,9 +1,10 @@
-﻿using DataObjects;
-using EntityServiceBase;
-using IEntityDal;
+﻿using CarRentalDalCore.DalApi.IEntityDal;
+using CarRentalDalCore.DataObjects.CarOperations;
+using CarRentalDalEF.CarRentalDBContext;
+using CarRentalDalEF.EntityServiceBase;
 
-namespace CarRentalDal;
+namespace CarRentalDalEF.CarRentalDal;
 
-public class DalCarImage : EntityServiceBase<CarImage, CarRentalDBContext.CarRentalDBContext>, ICarImage
+public class DalCarImage : EntityServiceBase<CarImage, CarRentalDBContext>, ICarImage
 {
 }

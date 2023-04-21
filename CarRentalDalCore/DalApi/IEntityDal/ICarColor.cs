@@ -1,8 +1,7 @@
-﻿
-using DalApi.IEntityService;
-using DataObjects;
+﻿using CarRentalDalCore.DalApi.IEntityService;
+using CarRentalDalCore.DataObjects.CarOperations;
 
-namespace IEntityDal;
+namespace CarRentalDalCore.DalApi.IEntityDal;
 
 public interface ICarColor : IEntityService<CarColor>
 {

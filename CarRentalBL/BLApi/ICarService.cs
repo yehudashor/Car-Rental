@@ -1,4 +1,4 @@
-﻿namespace BLApi;
+﻿namespace CarRentalBL.BLApi;
 
 public interface ICarService
 {

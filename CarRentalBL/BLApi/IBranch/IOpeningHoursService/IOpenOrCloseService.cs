@@ -1,6 +1,6 @@
-﻿using BusinessEntities;
+﻿using CarRentalBL.BusinessEntities.Enums;
 
-namespace BLApi;
+namespace CarRentalBL.BLApi.IBranch.IOpeningHoursService;
 
 public interface IOpenOrCloseService
 {

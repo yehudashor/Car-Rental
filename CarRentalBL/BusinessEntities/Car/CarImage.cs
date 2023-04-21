@@ -1,4 +1,4 @@
-﻿namespace BusinessEntities;
+﻿namespace CarRentalBL.BusinessEntities.Car;
 
 public class CarImage
 {

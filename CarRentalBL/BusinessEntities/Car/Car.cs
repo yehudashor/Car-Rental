@@ -1,4 +1,6 @@
-﻿namespace BusinessEntities;
+﻿using CarRentalBL.BusinessEntities.Enums;
+
+namespace CarRentalBL.BusinessEntities.Car;
 
 public class Car
 {

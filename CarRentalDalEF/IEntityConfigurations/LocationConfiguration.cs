@@ -1,8 +1,8 @@
-﻿using DataObjects;
+﻿using CarRentalDalCore.DataObjects.Locations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace IEntityConfigurations;
+namespace CarRentalDalEF.IEntityConfigurations;
 
 internal class LocationConfiguration : IEntityTypeConfiguration<Location>
 {

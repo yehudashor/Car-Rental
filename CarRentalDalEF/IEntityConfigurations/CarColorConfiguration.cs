@@ -1,8 +1,8 @@
-﻿using DataObjects;
+﻿using CarRentalDalCore.DataObjects.CarOperations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace IEntityConfigurations;
+namespace CarRentalDalEF.IEntityConfigurations;
 
 internal class CarColorConfiguration : IEntityTypeConfiguration<CarColor>
 {

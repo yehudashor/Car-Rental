@@ -1,8 +1,8 @@
-﻿using BLApi;
-using BusinessEntities;
-using DalApi.IEntityDal;
+﻿using CarRentalBL.BLApi.IBranch.IOpeningHoursService;
+using CarRentalBL.BusinessEntities.Enums;
+using CarRentalDalCore.DalApi.IEntityDal;
 
-namespace BLImplemention;
+namespace CarRentalBL.BLImplemention.Branch.OpeningHoursService;
 
 internal class OpenOrCloseService : IOpenOrCloseService
 {

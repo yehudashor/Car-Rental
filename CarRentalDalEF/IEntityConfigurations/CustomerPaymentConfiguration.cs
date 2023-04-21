@@ -1,8 +1,8 @@
-﻿using DataObjects;
+﻿using CarRentalDalCore.DataObjects.Customer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace IEntityConfigurations;
+namespace CarRentalDalEF.IEntityConfigurations;
 
 internal class CustomerPaymentConfiguration : IEntityTypeConfiguration<CustomerPayment>
 {

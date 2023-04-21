@@ -1,7 +1,7 @@
-﻿using DalApi.IEntityService;
-using DataObjects;
+﻿using CarRentalDalCore.DalApi.IEntityService;
+using CarRentalDalCore.DataObjects.Customer;
 
-namespace DalApi.IEntityDal;
+namespace CarRentalDalCore.DalApi.IEntityDal;
 
 public interface ICustomerPayment : IEntityService<CustomerPayment>
 {

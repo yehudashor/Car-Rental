@@ -1,6 +1,6 @@
-﻿using BusinessEntities;
+﻿using CarRentalBL.BusinessEntities.CarRental;
 
-namespace BLApi;
+namespace CarRentalBL.BLApi;
 
 public interface IRentalService
 {
