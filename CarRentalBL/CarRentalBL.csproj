@@ -7,8 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DependencyInjection\**" />
+    <EmbeddedResource Remove="DependencyInjection\**" />
+    <None Remove="DependencyInjection\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="BusinessEntities\Location\" />
-    <Folder Include="DependencyInjection\AutoFac\" />
   </ItemGroup>
 
   <ItemGroup>

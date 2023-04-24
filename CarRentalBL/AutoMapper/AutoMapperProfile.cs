@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CarRentalBL.BusinessEntities.Branch;
 using CarRentalDalCore.DataObjects.BranchOperations;
+using BranchOpeningHours = CarRentalBL.BusinessEntities.Branch.BranchOpeningHours;
 
 namespace CarRentalBL.AutoMapper;
 

@@ -48,7 +48,7 @@ public class BranchForListSerivce : IBranchForListSerivce
         //לטפל במילון ןלהוסיף תתיאור של העיר והרחוב
         if (_branchForLists is null)
         {
-            var branches = await _ibranch.GetAll(sort: b => b.BranchLocation.Location.City,
+            var branches = await _branch.GetAll(sort: b => b.BranchLocation.Location.City,
                        includeProperties: b => b.BranchLocation.Location);
 
             _branchForLists = _mapper.Map<IEnumerable<BranchForList>>(branches).Where(filter).ToDictionary(bfl => bfl.BranchId);
@@ -65,7 +65,7 @@ public class BranchForListSerivce : IBranchForListSerivce
         foreach (var branchForList in _branchForLists)
         {
             OpenClose previousOpenClose = branchForList.Value.OpenClose;
-            branchForList.Value.OpenClose = await _ibranchOpeningHoursService.IsOpenOrClose(branchForList.Value.BranchId, DateTime.Now);
+            branchForList.Value.OpenClose = await _branchOpeningHoursService.IsOpenOrClose(branchForList.Value.BranchId, DateTime.Now);
 
             if (previousOpenClose != branchForList.Value.OpenClose)
             {

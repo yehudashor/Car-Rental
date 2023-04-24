@@ -5,6 +5,6 @@ using CarRentalDalEF.EntityServiceBase;
 
 namespace CarRentalDalEF.CarRentalDal;
 
-public class DalLocation : EntityServiceBase<Location, CarRentalDBContext>, ILocation
+public class DalLocation : EntityServiceBase<Location, CarRentalDBContext.CarRentalDBContext>, ILocation
 {
 }

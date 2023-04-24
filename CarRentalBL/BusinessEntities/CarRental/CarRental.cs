@@ -6,7 +6,7 @@ public class CarRental
 {
     public RentalRequest RentalRequest { get; set; }
 
-    public IDictionary<Car, PriceOffer> RentalCarsPriceOffers { set; get; }
+    public IDictionary<Car.Car, PriceOffer.PriceOffer> RentalCarsPriceOffers { set; get; }
 
 
 }

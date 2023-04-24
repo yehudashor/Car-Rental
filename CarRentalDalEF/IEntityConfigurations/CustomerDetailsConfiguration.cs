@@ -12,7 +12,7 @@ internal class CustomerDetailsConfiguration : IEntityTypeConfiguration<CustomerD
 
         builder.HasMany(cd => cd.CarRentals)
             .WithOne(cd => cd.CustomerDetails)
-            .HasForeignKey(cd => cd.CustomerDetails)
+            .HasForeignKey(cd => cd.CustomerDetailsId)
             .OnDelete(DeleteBehavior.NoAction);
 
         builder.HasOne(cd => cd.Location)

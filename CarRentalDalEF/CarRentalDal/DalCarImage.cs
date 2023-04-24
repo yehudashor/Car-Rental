@@ -5,6 +5,6 @@ using CarRentalDalEF.EntityServiceBase;
 
 namespace CarRentalDalEF.CarRentalDal;
 
-public class DalCarImage : EntityServiceBase<CarImage, CarRentalDBContext>, ICarImage
+public class DalCarImage : EntityServiceBase<CarImage, CarRentalDBContext.CarRentalDBContext>, ICarImage
 {
 }

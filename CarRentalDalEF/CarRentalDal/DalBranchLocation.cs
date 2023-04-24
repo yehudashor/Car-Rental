@@ -5,7 +5,7 @@ using CarRentalDalEF.EntityServiceBase;
 
 namespace CarRentalDalEF.CarRentalDal;
 
-public class DalBranchLocation : EntityServiceBase<BranchLocation, CarRentalDBContext>, IBranchLocation
+public class DalBranchLocation : EntityServiceBase<BranchLocation, CarRentalDBContext.CarRentalDBContext>, IBranchLocation
 {
 
 }

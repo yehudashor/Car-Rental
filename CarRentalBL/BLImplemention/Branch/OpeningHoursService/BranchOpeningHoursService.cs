@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
-using BLImplemention;
 using CarRentalBL.BLApi.IBranch.IOpeningHoursService;
 using CarRentalBL.BusinessEntities.Branch;
 using CarRentalBL.BusinessEntities.Enums;
 using CarRentalDalCore.DalApi.IEntityDal;
-using CarRentalDalCore.DataObjects.BranchOperations;
 using FluentValidation;
 
 namespace CarRentalBL.BLImplemention.Branch.OpeningHoursService;

@@ -5,6 +5,6 @@ using CarRentalDalEF.EntityServiceBase;
 
 namespace CarRentalDalEF.CarRentalDal;
 
-public class DalCustomerPayment : EntityServiceBase<CustomerPayment, CarRentalDBContext>, ICustomerPayment
+public class DalCustomerPayment : EntityServiceBase<CustomerPayment, CarRentalDBContext.CarRentalDBContext>, ICustomerPayment
 {
 }

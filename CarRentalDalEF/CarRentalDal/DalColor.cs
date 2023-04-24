@@ -5,6 +5,6 @@ using CarRentalDalEF.EntityServiceBase;
 
 namespace CarRentalDalEF.CarRentalDal;
 
-public class DalColor : EntityServiceBase<CarColor, CarRentalDBContext>, ICarColor
+public class DalColor : EntityServiceBase<CarColor, CarRentalDBContext.CarRentalDBContext>, ICarColor
 {
 }
