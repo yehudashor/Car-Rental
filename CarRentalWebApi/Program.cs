@@ -1,6 +1,6 @@
 using CarRentalWebApi.Startup;
 
-WebApplication.CreateBuilder(args)
+WebApplication.CreateBuilder(args).WebHost.
    .RegisterServices()
    .Build()
    .RegisterMiddlewares()
