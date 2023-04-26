@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -95,17 +94,17 @@ namespace CarRentalDalEF.Migrations
                 name: "BranchesOpeningHours",
                 columns: table => new
                 {
-                    BranchId = table.Column<int>(type: "int", nullable: false),
+                    BranchOpeningHoursId = table.Column<int>(type: "int", nullable: false),
                     DayOfWeek = table.Column<int>(type: "int", nullable: false),
                     StartTime = table.Column<TimeSpan>(type: "time", nullable: false),
                     EndTime = table.Column<TimeSpan>(type: "time", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BranchesOpeningHours", x => new { x.BranchId, x.DayOfWeek });
+                    table.PrimaryKey("PK_BranchesOpeningHours", x => new { x.BranchOpeningHoursId, x.DayOfWeek });
                     table.ForeignKey(
-                        name: "FK_BranchesOpeningHours_Branches_BranchId",
-                        column: x => x.BranchId,
+                        name: "FK_BranchesOpeningHours_Branches_BranchOpeningHoursId",
+                        column: x => x.BranchOpeningHoursId,
                         principalTable: "Branches",
                         principalColumn: "BranchId",
                         onDelete: ReferentialAction.Cascade);
@@ -307,10 +306,6 @@ namespace CarRentalDalEF.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.InsertData(
-                table: "BranchesOpeningHours",
-                columns: new[] { "BranchId", "DayOfWeek", "EndTime", "StartTime" },
-                values: new object[] { 5, 1, new TimeSpan(0, 0, 0, 0, 0), new TimeSpan(0, 0, 0, 0, 0) });
 
             migrationBuilder.CreateIndex(
                 name: "IX_BranchesLocations_BranchId",

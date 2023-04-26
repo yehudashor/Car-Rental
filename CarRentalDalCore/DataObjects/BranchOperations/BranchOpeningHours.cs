@@ -8,7 +8,7 @@ public class BranchOpeningHours : IEntity
     /// <summary>
     /// Foreign key and the first key part of the branch entity.
     /// </summary>
-    public int BranchId { set; get; }
+    public int BranchOpeningHoursId { set; get; }
 
     /// <summary>
     /// The day of the week and the second key part of which these opening hours apply.

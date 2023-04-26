@@ -44,13 +44,13 @@ public class BranchOpeningHoursService : IBranchOpeningHoursService
 
     public async Task<IEnumerable<BranchOpeningHours>> GetAllOpeningHoursByBranchId(int branchId)
     {
-        var listBranchOpeningHours = await _branchOpeningHours.GetAll(filter: boh => boh.BranchId == branchId, sort: boh => boh.DayOfWeek);
+        var listBranchOpeningHours = await _branchOpeningHours.GetAll(filter: boh => boh.BranchOpeningHoursId == branchId, sort: boh => boh.DayOfWeek);
         return _mapper.Map<IEnumerable<BranchOpeningHours>>(listBranchOpeningHours);
     }
 
     public async Task<BranchOpeningHours> GetOpeningHours(int branchId, DayOfWeek dayOfWeek)
     {
-        var branchOpeningHours = await _branchOpeningHours.Get(filter: boh => boh.BranchId == branchId && boh.DayOfWeek == dayOfWeek);
+        var branchOpeningHours = await _branchOpeningHours.Get(filter: boh => boh.BranchOpeningHoursId == branchId && boh.DayOfWeek == dayOfWeek);
         return _mapper.Map<BranchOpeningHours>(branchOpeningHours);
     }
 

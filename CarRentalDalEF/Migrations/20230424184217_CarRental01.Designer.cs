@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRentalDalEF.Migrations
 {
     [DbContext(typeof(CarRentalDBContext.CarRentalDBContext))]
-    [Migration("20230424161542_CarRental01")]
+    [Migration("20230424184217_CarRental01")]
     partial class CarRental01
     {
         /// <inheritdoc />
@@ -75,7 +75,7 @@ namespace CarRentalDalEF.Migrations
 
             modelBuilder.Entity("CarRentalDalCore.DataObjects.BranchOperations.BranchOpeningHours", b =>
                 {
-                    b.Property<int>("BranchId")
+                    b.Property<int>("BranchOpeningHoursId")
                         .HasColumnType("int");
 
                     b.Property<int>("DayOfWeek")
@@ -87,14 +87,14 @@ namespace CarRentalDalEF.Migrations
                     b.Property<TimeSpan>("StartTime")
                         .HasColumnType("time");
 
-                    b.HasKey("BranchId", "DayOfWeek");
+                    b.HasKey("BranchOpeningHoursId", "DayOfWeek");
 
                     b.ToTable("BranchesOpeningHours");
 
                     b.HasData(
                         new
                         {
-                            BranchId = 5,
+                            BranchOpeningHoursId = 5,
                             DayOfWeek = 1,
                             EndTime = new TimeSpan(0, 0, 0, 0, 0),
                             StartTime = new TimeSpan(0, 0, 0, 0, 0)
@@ -427,7 +427,7 @@ namespace CarRentalDalEF.Migrations
                 {
                     b.HasOne("CarRentalDalCore.DataObjects.BranchOperations.Branch", "Branch")
                         .WithMany("OpeningHoursList")
-                        .HasForeignKey("BranchId")
+                        .HasForeignKey("BranchOpeningHoursId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

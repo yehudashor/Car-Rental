@@ -38,7 +38,7 @@ public class CarRentalDBContext : DbContext
     {
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-        modelBuilder.Entity<BranchOpeningHours>().HasData(new BranchOpeningHours { BranchId = 5, DayOfWeek = DayOfWeek.Monday });
+        modelBuilder.Entity<BranchOpeningHours>().HasData(new BranchOpeningHours { BranchOpeningHoursId = 5, DayOfWeek = DayOfWeek.Monday });
     }
 
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)

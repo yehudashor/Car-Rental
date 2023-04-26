@@ -67,7 +67,7 @@ public class BranchService : IBranchService
 
     //    branchForLists = branchForLists.Select(branchForList =>
     //    {
-    //        //bool isOpenNow = await IsBranchOpen(branchForList.BranchId, DateTime.Now);
+    //        //bool isOpenNow = await IsBranchOpen(branchForList.BranchOpeningHoursId, DateTime.Now);
 
     //        if (numberBranchesInCity[branchForList.City] > 0)
     //        {

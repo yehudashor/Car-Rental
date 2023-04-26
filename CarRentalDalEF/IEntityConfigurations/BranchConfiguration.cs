@@ -17,7 +17,7 @@ internal class BranchConfiguration : IEntityTypeConfiguration<Branch>
 
         builder.HasMany(b => b.OpeningHoursList)
             .WithOne(b => b.Branch)
-            .HasForeignKey(b => b.BranchId)
+            .HasForeignKey(b => b.BranchOpeningHoursId)
             .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasMany(b => b.CarRentals)
