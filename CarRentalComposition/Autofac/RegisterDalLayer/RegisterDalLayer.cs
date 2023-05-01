@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using CarRentalComposition.Autofac.Extensions;
-using System.Reflection;
 using Module = Autofac.Module;
 
 namespace CarRentalComposition.Autofac.RegisterDalLayer;

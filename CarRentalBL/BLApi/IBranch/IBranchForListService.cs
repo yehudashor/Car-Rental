@@ -2,7 +2,7 @@
 
 namespace CarRentalBL.BLApi.IBranch;
 
-public interface IBranchForListSerivce
+public interface IBranchForListService
 {
     event Action<IEnumerable<BranchForList>> OnOpenCloseChange;
     Task<IEnumerable<BranchForList>> GetAllBranchForList(Func<BranchForList, bool> filter = null);

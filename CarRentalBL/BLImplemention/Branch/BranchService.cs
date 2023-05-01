@@ -3,7 +3,9 @@ using CarRentalBL.BLApi.IBranch;
 using CarRentalBL.BLApi.IBranch.IOpeningHoursService;
 using CarRentalBL.BusinessEntities.Branch;
 using CarRentalDalCore.DalApi.IEntityDal;
+using BranchDo = CarRentalDalCore.DataObjects.BranchOperations.Branch;
 using FluentValidation;
+using BranchOpeningHours = CarRentalBL.BusinessEntities.Branch.BranchOpeningHours;
 
 namespace CarRentalBL.BLImplemention.Branch;
 
@@ -17,17 +19,18 @@ public class BranchService : IBranchService
 
     private readonly IMapper _imapper;
 
-    public BranchService(IValidator ivalidator, IBranch ibranch, IBranchOpeningHoursService ibranchOpeningHoursService, IMapper imapper)
+    public BranchService(IBranch ibranch, IBranchOpeningHoursService ibranchOpeningHoursService, IMapper imapper)
     {
-        _ivalidator = ivalidator;
         _ibranch = ibranch;
         _ibranchOpeningHoursService = ibranchOpeningHoursService;
         _imapper = imapper;
     }
 
-    public Task Add(BranchBase branchBase)
+    public async Task Add(BranchBase branchBase)
     {
-        throw new NotImplementedException();
+        var branch = _imapper.Map<BranchDo>(branchBase);
+
+
     }
 
     public Task Delete(int branchId)
@@ -35,9 +38,15 @@ public class BranchService : IBranchService
         throw new NotImplementedException();
     }
 
-    public Task<BranchBase> GetBranch(int branchId)
+    public async Task<BranchBase> GetBranch(int branchId)
     {
-        throw new NotImplementedException();
+        var branch = await _ibranch.Get(filter: b => b.BranchId == branchId,
+            includeProperties: b => b.BranchLocation.Location, b => b.OpeningHoursList, 
+            b => b.BranchOpeningHoursEvents);
+
+        var branchForCustomer = _imapper.Map<BranchBase>(branch);
+
+        return branchForCustomer;
     }
 
     public Task Update(BranchBase branchBase)

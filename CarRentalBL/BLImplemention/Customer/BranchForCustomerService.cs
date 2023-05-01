@@ -8,9 +8,9 @@ public class BranchForCustomerService : IBranchForCustomerService
 {
     private readonly IBranchService _branchService;
 
-    private readonly IBranchForListSerivce _branchForListSerivce;
+    private readonly IBranchForListService _branchForListSerivce;
 
-    public BranchForCustomerService(IBranchService branchService, IBranchForListSerivce branchForListSerivce)
+    public BranchForCustomerService(IBranchService branchService, IBranchForListService branchForListSerivce)
     {
         _branchService = branchService;
         _branchForListSerivce = branchForListSerivce;

@@ -9,10 +9,9 @@ public class RentalService : IRentalService
     private readonly IValidator _validator;
 
     private readonly ICarRental _carRental;
-    public RentalService(ICarRental carRental, IValidator validator)
+    public RentalService(ICarRental carRental)
     {
         _carRental = carRental;
-        _validator = validator;
     }
 
     public async Task<CarRental> GetRentalPriceQuotes(CarRental carRental)

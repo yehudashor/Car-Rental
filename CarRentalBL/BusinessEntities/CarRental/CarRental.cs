@@ -1,6 +1,4 @@
-﻿using CarRentalBL.BusinessEntities.PriceOffer;
-
-namespace CarRentalBL.BusinessEntities.CarRental;
+﻿namespace CarRentalBL.BusinessEntities.CarRental;
 
 public class CarRental
 {

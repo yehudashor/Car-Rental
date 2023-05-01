@@ -11,7 +11,7 @@ namespace CarRentalDalEF.CarRentalDBContext;
 
 public class CarRentalDBContext : DbContext
 {
-    private const string connectionString = "Server=localHost;DataBase=CarRental;Trusted_Connection=True;TrustServerCertificate=True"; 
+    private const string connectionString = "Server=localHost;DataBase=CarRental;Trusted_Connection=True;TrustServerCertificate=True";
 
     public virtual DbSet<Branch> Branches { get; set; }
     public virtual DbSet<BranchOpeningHours> BranchesOpeningHours { get; set; }

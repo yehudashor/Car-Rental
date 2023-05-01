@@ -23,10 +23,9 @@ public class BranchOpeningHoursService : IBranchOpeningHoursService
     private readonly IValidator _validator;
 
     private readonly IMapper _mapper;
-    public BranchOpeningHoursService(IBranchOpeningHours branchOpeningHours, IValidator validator, IMapper mapper)
+    public BranchOpeningHoursService(IBranchOpeningHours branchOpeningHours, IMapper mapper)
     {
         _branchOpeningHours = branchOpeningHours;
-        _validator = validator;
         _mapper = mapper;
     }
 

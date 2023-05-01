@@ -10,6 +10,9 @@ internal class RegisterAssemblyModules : Module
     {
         var assembly = Assembly.GetExecutingAssembly();
 
-        builder.RegisterAssemblyModules(assembly).IfNotRegistered(typeof(RegisterAssemblyModules));
+        //builder.RegisterAssemblyModules(assembly);
+
+        builder.RegisterModule<RegisterBLLayer.RegisterBLLayer>();
+        builder.RegisterModule<RegisterDalLayer.RegisterDalLayer>();
     }
 }
