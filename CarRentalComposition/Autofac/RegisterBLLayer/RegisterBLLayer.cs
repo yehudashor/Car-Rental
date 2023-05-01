@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿
+using Autofac;
 using CarRentalComposition.Autofac.Extensions;
 
 namespace CarRentalComposition.Autofac.RegisterBLLayer;

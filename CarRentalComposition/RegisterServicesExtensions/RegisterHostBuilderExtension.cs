@@ -1,11 +1,17 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.Extensions.Hosting;
+using Autofac.Extensions.DependencyInjection;
 using Autofac;
+using CarRentalComposition.Autofac.RegisterAssemblyModules;
+
 namespace CarRentalComposition.RegisterServicesExtensions;
 
-internal static class RegisterHostBuilderExtension
+public static class RegisterHostBuilderExtension
 {
-    public static void RegisterHostBuilder(this IWebHostBuilder webHostBuilder)
+    public static void RegisterHostBuilder(this IHostBuilder hostBuilder)
     {
-      
+        hostBuilder.UseServiceProviderFactory(new AutofacServiceProviderFactory(builder =>
+        {
+            builder.RegisterAssemblyModules<RegisterAssemblyModules>();
+        }));
     }
 }
