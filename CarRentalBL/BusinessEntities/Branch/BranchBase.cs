@@ -19,4 +19,9 @@ public abstract class BranchBase
     /// The opening hours for the branch, stored as a collection of daily opening hour entities.
     /// </summary>
     public ICollection<BranchOpeningHours> OpeningHoursList { set; get; }
+
+    /// <summary>
+    /// opening hours events of this branch.
+    /// </summary>
+    public ICollection<BranchOpeningHoursEvent> BranchOpeningHoursEvents { set; get; }
 }

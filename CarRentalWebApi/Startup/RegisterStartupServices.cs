@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authentication.Certificate;
+﻿using CarRentalComposition.RegisterServicesExtension;
+using CarRentalComposition.RegisterServicesExtensions;
+using Microsoft.AspNetCore.Authentication.Certificate;
 
 namespace CarRentalWebApi.Startup;
 
@@ -6,8 +8,9 @@ internal static class RegisterStartupServices
 {
     internal static WebApplicationBuilder RegisterServices(this WebApplicationBuilder webApplicationBuilder)
     {
-        //להוסיף את פונקציית הרחבה של הפרויקט שנוסיף 
-        // Add services to the container.
+        webApplicationBuilder.Host.RegisterHostBuilder();
+
+        webApplicationBuilder.Services.RegisterServicesCollection();
         webApplicationBuilder.Services.AddAuthentication(
                 CertificateAuthenticationDefaults.AuthenticationScheme)
                 .AddCertificate();

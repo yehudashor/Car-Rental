@@ -5,7 +5,7 @@ using BranchOpeningHours = CarRentalBL.BusinessEntities.Branch.BranchOpeningHour
 
 namespace CarRentalBL.AutoMapper;
 
-internal class AutoMapperProfile : Profile
+public class AutoMapperProfile : Profile
 {
     public AutoMapperProfile()
     {
