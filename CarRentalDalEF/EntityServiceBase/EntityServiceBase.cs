@@ -52,7 +52,7 @@ public class EntityServiceBase<TEntity, TDBContext> : IEntityService<TEntity>
         using (TDBContext dBContext = new TDBContext())
         {
             TEntity entity = await dBContext.Set<TEntity>().FindAsync(filter);
-
+            // applyIncludesOnQuery(includeProperties, entity);
             return entity;
         }
     }
@@ -75,16 +75,14 @@ public class EntityServiceBase<TEntity, TDBContext> : IEntityService<TEntity>
                 entities = entities.OrderBy(sort);
             }
 
-            entities = addIncludeProperties(includeProperties, entities);
+            entities = applyIncludesOnQuery(includeProperties, entities);
 
             return await entities.ToListAsync();
         }
     }
 
-    private IQueryable<TEntity> addIncludeProperties(Expression<Func<TEntity, object>>[] includeProperties, IQueryable<TEntity> entities) =>
-
+    private IQueryable<TEntity> applyIncludesOnQuery(Expression<Func<TEntity, object>>[] includeProperties, IQueryable<TEntity> entities) =>
          includeProperties.Aggregate(entities, (entitiesResult, includeProperty) => entitiesResult.Include(includeProperty));
-
 
     public async Task LoadObjects(TEntity entity, params Expression<Func<TEntity, object>>[] loaDataObjectsbjects)
     {

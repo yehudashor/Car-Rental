@@ -3,32 +3,32 @@ using CarRentalBL.BLApi.IBranch;
 using CarRentalBL.BLApi.IBranch.IOpeningHoursService;
 using CarRentalBL.BusinessEntities.Branch;
 using CarRentalDalCore.DalApi.IEntityDal;
-using BranchDo = CarRentalDalCore.DataObjects.BranchOperations.Branch;
 using FluentValidation;
+using BranchDo = CarRentalDalCore.DataObjects.BranchOperations.Branch;
 using BranchOpeningHours = CarRentalBL.BusinessEntities.Branch.BranchOpeningHours;
 
 namespace CarRentalBL.BLImplemention.Branch;
 
 public class BranchService : IBranchService
 {
-    private readonly IBranch _ibranch;
+    private readonly IBranch _branch;
 
-    private readonly IBranchOpeningHoursService _ibranchOpeningHoursService;
+    private readonly IBranchOpeningHoursService _branchOpeningHoursService;
 
-    private readonly IValidator _ivalidator;
+    private readonly IValidator _validator;
 
-    private readonly IMapper _imapper;
+    private readonly IMapper _mapper;
 
     public BranchService(IBranch ibranch, IBranchOpeningHoursService ibranchOpeningHoursService, IMapper imapper)
     {
-        _ibranch = ibranch;
-        _ibranchOpeningHoursService = ibranchOpeningHoursService;
-        _imapper = imapper;
+        _branch = ibranch;
+        _branchOpeningHoursService = ibranchOpeningHoursService;
+        _mapper = imapper;
     }
 
     public async Task Add(BranchBase branchBase)
     {
-        var branch = _imapper.Map<BranchDo>(branchBase);
+        var branch = _mapper.Map<BranchDo>(branchBase);
 
 
     }
@@ -40,11 +40,13 @@ public class BranchService : IBranchService
 
     public async Task<BranchBase> GetBranch(int branchId)
     {
-        var branch = await _ibranch.Get(filter: b => b.BranchId == branchId,
-            includeProperties: b => b.BranchLocation.Location, b => b.OpeningHoursList, 
+        var branch = await _branch.Get(
+            b => b.BranchId == branchId,
+            b => b.BranchLocation.Location,
+            b => b.OpeningHoursList,
             b => b.BranchOpeningHoursEvents);
 
-        var branchForCustomer = _imapper.Map<BranchBase>(branch);
+        var branchForCustomer = _mapper.Map<BranchBase>(branch);
 
         return branchForCustomer;
     }
