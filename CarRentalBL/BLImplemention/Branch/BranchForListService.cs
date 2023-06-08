@@ -43,7 +43,6 @@ public class BranchForListService : IBranchForListService
 
     public async Task<IEnumerable<BranchForList>> GetAllBranchForList(Func<BranchForList, bool> filter = null)
     {
-        //לטפל במילון ןלהוסיף תתיאור של העיר והרחוב
         var branches = await _branch.GetAll(sort: b => b.BranchLocation.Location.City,
                       includeProperties: b => b.BranchLocation.Location);
 
@@ -72,22 +71,20 @@ public class BranchForListService : IBranchForListService
 
         if (wasChange)
         {
-            //לעורר את האירוע עי הןספה מתודות הרחבה
+            //לעורר את האירוע עי הוספת מתודות הרחבה
         }
     }
 
     public async Task<IEnumerable<BranchForList>> GetAllBranchForListByCountry(string country)
     {
-        // var branches = await _branch.GetAll(filter: b => b.BranchLocation.Location.Country == country,
-        // sort: b => b.BranchLocation.Location.City, includeProperties: b => b.BranchLocation.Location);
+        var branches = await _branch.GetAll(filter: b => b.BranchLocation.Location.Country == country,
+        sort: b => b.BranchLocation.Location.City, includeProperties: b => b.BranchLocation.Location);
 
-        //var branchesForList = _mapper.Map<IEnumerable<BranchForList>>(branches);
+        var branchesForList = _mapper.Map<IEnumerable<BranchForList>>(branches);
 
-        //_openCloseTimer.Elapsed += (sender, e) => onOpenClose(branchesForList);
-        //_openCloseTimer.Start();
+        _openCloseTimer.Elapsed += (sender, e) => onOpenClose(branchesForList);
+        _openCloseTimer.Start();
 
-        // return branchesForList;
-
-        return Enumerable.Repeat(new BranchForList { BranchId = 5 }, 10);
+        return branchesForList;
     }
 }
