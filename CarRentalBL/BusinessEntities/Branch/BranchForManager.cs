@@ -2,6 +2,8 @@
 
 public class BranchForManager : BranchBase
 {
+    public BranchBase BranchBase { get; set; }
+
     /// <summary>
     /// The opening hours for the branch, stored as a collection of daily opening hour entities.
     /// </summary>

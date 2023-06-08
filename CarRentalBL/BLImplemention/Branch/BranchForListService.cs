@@ -5,6 +5,7 @@ using CarRentalBL.BusinessEntities.Branch;
 using CarRentalBL.BusinessEntities.Enums;
 using CarRentalDalCore.DalApi.IEntityDal;
 using FluentValidation;
+
 namespace CarRentalBL.BLImplemention.Branch;
 
 public class BranchForListService : IBranchForListService
@@ -17,7 +18,7 @@ public class BranchForListService : IBranchForListService
 
     private readonly IMapper _mapper;
 
-    private readonly System.Timers.Timer _timer;
+    private readonly System.Timers.Timer _openCloseTimer;
 
     private event Action<IEnumerable<BranchForList>> _onOpenCloseChange;
 
@@ -34,7 +35,7 @@ public class BranchForListService : IBranchForListService
 
         _mapper = mapper;
 
-        _timer = new System.Timers.Timer(600000)
+        _openCloseTimer = new System.Timers.Timer(600000)
         {
             AutoReset = true,
         };
@@ -48,8 +49,8 @@ public class BranchForListService : IBranchForListService
 
         var branchesForList = _mapper.Map<IEnumerable<BranchForList>>(branches).Where(filter);
 
-        _timer.Elapsed += (sender, e) => onOpenClose(branchesForList);
-        _timer.Start();
+        _openCloseTimer.Elapsed += (sender, e) => onOpenClose(branchesForList);
+        _openCloseTimer.Start();
 
         return branchesForList;
     }
@@ -77,13 +78,13 @@ public class BranchForListService : IBranchForListService
 
     public async Task<IEnumerable<BranchForList>> GetAllBranchForListByCountry(string country)
     {
-        //var branches = await _branch.GetAll(filter: b => b.BranchLocation.Location.Country == country,
-        //    sort: b => b.BranchLocation.Location.City, includeProperties: b => b.BranchLocation.Location);
+        // var branches = await _branch.GetAll(filter: b => b.BranchLocation.Location.Country == country,
+        // sort: b => b.BranchLocation.Location.City, includeProperties: b => b.BranchLocation.Location);
 
         //var branchesForList = _mapper.Map<IEnumerable<BranchForList>>(branches);
 
-        //_timer.Elapsed += (sender, e) => onOpenClose(branchesForList);
-        //_timer.Start();
+        //_openCloseTimer.Elapsed += (sender, e) => onOpenClose(branchesForList);
+        //_openCloseTimer.Start();
 
         // return branchesForList;
 

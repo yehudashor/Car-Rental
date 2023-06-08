@@ -7,6 +7,7 @@ public interface IEntityService<TEntity> where TEntity : class, IEntity.IEntity,
     Task Add(TEntity entity);
     Task AddRange(params TEntity[] entities);
     Task Delete(Expression<Func<TEntity, bool>> filter);
+    Task Delete(TEntity entity);
     Task Update(TEntity entity);
     Task<TEntity> Get(Expression<Func<TEntity, bool>> filter,
         params Expression<Func<TEntity, object>>[] includeProperties);

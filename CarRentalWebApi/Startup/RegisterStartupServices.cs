@@ -1,25 +1,32 @@
-﻿using CarRentalComposition.RegisterServicesExtension;
-using CarRentalComposition.RegisterServicesExtensions;
+﻿using CarRentalComposition.RegisterServicesExtensions;
 using Microsoft.AspNetCore.Authentication.Certificate;
 
 namespace CarRentalWebApi.Startup;
 
 internal static class RegisterStartupServices
 {
-    internal static WebApplicationBuilder RegisterServices(this WebApplicationBuilder webApplicationBuilder)
+    internal static WebApplicationBuilder RegisterServices(this WebApplicationBuilder appBuilder)
     {
-        webApplicationBuilder.Host.RegisterHostBuilder();
-
-        webApplicationBuilder.Services.RegisterServicesCollection();
-        webApplicationBuilder.Services.AddAuthentication(
+        appBuilder.Host.RegisterHostBuilder();
+        appBuilder.Services.RegisterServicesCollection();
+        appBuilder.Services.AddAuthentication(
                 CertificateAuthenticationDefaults.AuthenticationScheme)
                 .AddCertificate();
 
-        webApplicationBuilder.Services.AddControllers();
-        webApplicationBuilder.Services.AddEndpointsApiExplorer();
-        webApplicationBuilder.Services.AddRouting();
-        webApplicationBuilder.Services.AddSwaggerGen();
+        appBuilder.Services.AddControllers();
 
-        return webApplicationBuilder;
+        appBuilder.Services.AddCors(options =>
+        {
+            options.AddPolicy("CoresPolicy",
+                builder => builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+        });
+
+        appBuilder.Services.AddEndpointsApiExplorer();
+        appBuilder.Services.AddRouting();
+        appBuilder.Services.AddSwaggerGen();
+
+        return appBuilder;
     }
 }

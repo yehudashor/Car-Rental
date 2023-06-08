@@ -1,5 +1,5 @@
 ﻿using CarRentalDalCore.DalApi.IEntityDal;
-using CarRentalDalCore.DataObjects.BranchOperations;
+using CarRentalDalCore.DataObjects.Branch;
 using CarRentalDalEF.EntityServiceBase;
 
 namespace CarRentalDalEF.CarRentalDal

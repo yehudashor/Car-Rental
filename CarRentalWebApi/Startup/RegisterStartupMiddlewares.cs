@@ -11,8 +11,11 @@ internal static class RegisterStartupMiddlewares
             webApplication.UseDeveloperExceptionPage();
         }
 
+
         webApplication.UseHttpsRedirection();
         webApplication.UseRouting();
+        webApplication.UseCors("CoresPolicy");
+
         webApplication.UseEndpoints((en) =>
         {
             en.MapControllers();

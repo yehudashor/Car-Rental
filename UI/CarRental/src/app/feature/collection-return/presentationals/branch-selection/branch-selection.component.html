@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    
+
+    <div>
+      <label> איסוף והחזרה באותו סניף </label>
+      <mat-checkbox
+        [checked]="branchSelectionInput.collectionReturnInSameBranch"
+        (change)="onCheckboxChange()"
+      >
+      </mat-checkbox>
+    </div>
+
+    <div>
+      <autocomplete-container
+        [autocompleteAllData]="autocompleteData"
+      ></autocomplete-container>
+    </div>
+
+    <div>
+      <autocomplete-container
+        *ngIf="!branchSelectionInput.collectionReturnInSameBranch"
+        [autocompleteAllData]="autocompleteData"
+      ></autocomplete-container>
+    </div>
+    <!--     <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-7">
+
+          <div class="offset-3">
+            <label> איסוף והחזרה באותו סניף </label>
+            <mat-checkbox
+              [checked]="branchSelectionInput.collectionReturnInSameBranch"
+              (change)="onCheckboxChange()">
+            </mat-checkbox>
+          </div>
+
+          <ng-container
+            *ngTemplateOutlet="
+              searchBranches
+              context: branchSelectionInput.collectionPlaceholder
+            "
+          ></ng-container>
+
+          <ng-container *ngIf="!branchSelectionInput.collectionReturnInSameBranch">
+            <ng-container
+              *ngTemplateOutlet="
+                searchBranches
+                context: branchSelectionInput.returnPlaceholder
+              "
+            >
+            </ng-container>
+          </ng-container>
+
+          <ng-template #searchBranches let-placeholder="placeholder">
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                [matAutocomplete]="auto"
+                [placeholder]="placeholder"
+              />
+              <mat-autocomplete #auto >
+                <mat-option *ngFor="let branch of branches" [value]="branch">{{
+                  branch.city
+                }}</mat-option>
+              </mat-autocomplete>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div> -->
+  </body>
+</html>

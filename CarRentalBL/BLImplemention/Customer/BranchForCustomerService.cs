@@ -23,6 +23,6 @@ public class BranchForCustomerService : IBranchForCustomerService
     public async Task<BranchForCustomer> GetBranchForCustomer(int branchId)
     {
         var branch = await _branchService.GetBranch(branchId);
-        return (BranchForCustomer)branch;
+        return new BranchForCustomer { BranchBase = branch };
     }
 }

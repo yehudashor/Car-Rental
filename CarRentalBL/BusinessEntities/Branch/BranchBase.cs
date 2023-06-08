@@ -2,7 +2,6 @@
 
 public abstract class BranchBase
 {
-
     /// <summary>
     /// Unique identifier for the branch.
     /// </summary>

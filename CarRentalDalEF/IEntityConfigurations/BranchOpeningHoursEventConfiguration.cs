@@ -1,4 +1,4 @@
-﻿using CarRentalDalCore.DataObjects.BranchOperations;
+﻿using CarRentalDalCore.DataObjects.Branch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

@@ -1,0 +1,35 @@
+<input type="radio" name="options" value="All" 
+(change)="onRadioChanged($event)">
+<span>All ({{all}})</span>
+
+<input type="radio" name="options" value="Open" 
+(change)="onRadioChanged($event)"> 
+<span>Open ({{openLen}})</span>
+
+<input type="radio" name="options" value="Close" 
+(change)="onRadioChanged($event)"> 
+<span> Close ({{closeLen}})</span>
+
+<ng-container *ngTemplateOutlet="inputTemplate;
+context:{type:'radio',name:'options',value:'All', str:all}">
+</ng-container>
+
+<ng-template
+#inputTemplate
+let-type="type"
+let-name="name"
+let-value="value"
+let-str="str"
+>
+
+<div> 
+  <input [type]="type" [name]="name" [value]="value" 
+  (change)="onRadioChanged($event)"> 
+  <span>{{str}}</span>
+</div>
+
+</ng-template>
+
+
+
+

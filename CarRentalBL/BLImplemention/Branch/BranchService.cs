@@ -4,8 +4,7 @@ using CarRentalBL.BLApi.IBranch.IOpeningHoursService;
 using CarRentalBL.BusinessEntities.Branch;
 using CarRentalDalCore.DalApi.IEntityDal;
 using FluentValidation;
-using BranchDo = CarRentalDalCore.DataObjects.BranchOperations.Branch;
-using BranchOpeningHours = CarRentalBL.BusinessEntities.Branch.BranchOpeningHours;
+using BranchDo = CarRentalDalCore.DataObjects.Branch.Branch;
 
 namespace CarRentalBL.BLImplemention.Branch;
 
@@ -28,14 +27,16 @@ public class BranchService : IBranchService
 
     public async Task Add(BranchBase branchBase)
     {
+        await _branchOpeningHoursService.AddRange(branchBase.BranchId, branchBase.OpeningHoursList);
+
         var branch = _mapper.Map<BranchDo>(branchBase);
 
-
+        await _branch.Add(branch);
     }
 
-    public Task Delete(int branchId)
+    public async Task Delete(int branchId)
     {
-        throw new NotImplementedException();
+        await _branch.Delete(branch => branch.BranchId == branchId);
     }
 
     public async Task<BranchBase> GetBranch(int branchId)
@@ -51,21 +52,25 @@ public class BranchService : IBranchService
         return branchForCustomer;
     }
 
-    public Task Update(BranchBase branchBase)
+    public async Task Update(BranchBase branchBase)
     {
-        throw new NotImplementedException();
+        var branch = _mapper.Map<BranchDo>(branchBase);
+        await _branch.Update(branch);
     }
 
-    public Task UpdateOpeningHours(BranchOpeningHours branchOpeningHours)
+    public async Task UpdateOpeningHours(BranchOpeningHours branchOpeningHours)
     {
-        throw new NotImplementedException();
+        await _branchOpeningHoursService.Add(branchOpeningHours);
     }
 
-
+    public async Task DeleteOpeningHours(BranchOpeningHours branchOpeningHours)
+    {
+        await _branchOpeningHoursService.Delete(branchOpeningHours);
+    }
 
     //public async Task<IEnumerable<BranchForList>> GetBranchForListByCountry(string countryName)
     //{
-    //    IEnumerable<DataObjects.Branch> branches = await _branch.GetAll(
+    //    IEnumerable<DataObjects.BranchId> branches = await _branch.GetAll(
     //        filter: b => b.BranchLocation.Location.Country == countryName,
     //        sort: b => b.BranchLocation.Location.City,
     //         b => b.BranchLocation.Location, b => b.OpeningHoursList);
@@ -78,7 +83,7 @@ public class BranchService : IBranchService
 
     //    branchForLists = branchForLists.Select(branchForList =>
     //    {
-    //        //bool isOpenNow = await IsBranchOpen(branchForList.BranchOpeningHoursId, DateTime.Now);
+    //        //bool isOpenNow = await IsBranchOpen(branchForList.BranchId, DateTime.Now);
 
     //        if (numberBranchesInCity[branchForList.City] > 0)
     //        {
@@ -121,6 +126,4 @@ public class BranchService : IBranchService
     //{
     //    //return Task.FromResult(branchesAndTimes.All(async oh => await _branchOpeningHoursService.IsBranchOpen(oh.Item1, oh.Item2)));
     //}
-
-
 }

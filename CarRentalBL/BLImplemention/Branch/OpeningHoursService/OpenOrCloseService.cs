@@ -12,8 +12,9 @@ internal class OpenOrCloseService : IOpenOrCloseService
     {
         TimeOnly time = TimeOnly.FromDateTime(dateTime);
 
-        bool isOpenOrClose = await _ibranchOpeningHours.Any(boh => boh.BranchOpeningHoursId == branchId &&
-        boh.DayOfWeek == dateTime.DayOfWeek && boh.StartTime < time && boh.EndTime > time);
+        bool isOpenOrClose = await _ibranchOpeningHours.Any(boh => boh.BranchId == branchId &&
+        boh.FromDay <= dateTime.DayOfWeek && boh.ToDay >= dateTime.DayOfWeek &&
+        boh.StartTime < time && boh.EndTime > time);
 
         return isOpenOrClose ? OpenClose.Open : OpenClose.Close;
     }

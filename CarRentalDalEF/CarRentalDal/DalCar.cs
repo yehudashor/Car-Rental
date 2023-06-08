@@ -1,5 +1,6 @@
 ﻿using CarRentalDalCore.DalApi.IEntityDal;
-using CarRentalDalCore.DataObjects.CarOperations;
+using CarRentalDalCore.DataObjects.Car;
+using CarRentalDalEF.CarRentalDBContext;
 using CarRentalDalEF.EntityServiceBase;
 
 namespace CarRentalDalEF.CarRentalDal;

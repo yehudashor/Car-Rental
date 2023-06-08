@@ -18,24 +18,25 @@ public class BranchForManagerService : IBranchForManagerService
 
     public event Action<IEnumerable<BranchForList>> OnOpenCloseChange;
 
-    public Task Add(BranchBase branchBase)
+    public async Task Add(BranchForManager branchBase)
     {
-        throw new NotImplementedException();
+        await _branchService.Add(branchBase);
     }
 
-    public Task Delete(int branchId)
+    public async Task Delete(int branchId)
     {
-        throw new NotImplementedException();
+        await _branchService.Delete(branchId);
     }
 
-    public Task<IEnumerable<BranchForList>> GetAllBranchForList(Func<BranchForList, bool> filter = null)
+    public async Task<IEnumerable<BranchForList>> GetAllBranchForList(Func<BranchForList, bool> filter = null)
     {
-        throw new NotImplementedException();
+        var branches = await _branchForListSerivce.GetAllBranchForList(filter);
+        return branches;
     }
 
-    public Task<IEnumerable<BranchForList>> GetAllBranchForListByCountry(string country)
+    public async Task<IEnumerable<BranchForList>> GetAllBranchForListByCountry(string country)
     {
-        throw new NotImplementedException();
+        return await GetAllBranchForList(branch => branch.Country == country);
     }
 
     public async Task<BranchForManager> GetBranchForManager(int branchId)
@@ -44,16 +45,15 @@ public class BranchForManagerService : IBranchForManagerService
 
         //להןסיף את הפרמטרים הנוספים
         return (BranchForManager)branch;
-
     }
 
-    public Task Update(BranchBase branchBase)
+    public async Task Update(BranchForManager branchForManager)
     {
-        throw new NotImplementedException();
+        await _branchService.Update(branchForManager);
     }
 
-    public Task UpdateOpeningHours(BranchOpeningHours branchOpeningHours)
-    {
-        throw new NotImplementedException();
-    }
+    //public async Task UpdateOpeningHours(BranchOpeningHours branchOpeningHours)
+    //{
+
+    //}
 }

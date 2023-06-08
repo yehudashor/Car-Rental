@@ -1,5 +1,5 @@
 ﻿using CarRentalDalCore.DalApi.IEntity;
-using CarRentalDalCore.DataObjects.CarOperations;
+using CarRentalDalCore.DataObjects.Car;
 using CarRentalDalCore.DataObjects.Locations;
 
 namespace CarRentalDalCore.DataObjects.Customer;

@@ -37,6 +37,15 @@ public class EntityServiceBase<TEntity, TDBContext> : IEntityService<TEntity>
         }
     }
 
+    public async Task Delete(TEntity entity)
+    {
+        using (TDBContext dBContext = new TDBContext())
+        {
+            dBContext.Remove(entity);
+            await dBContext.SaveChangesAsync();
+        }
+    }
+
     public async Task Update(TEntity entity)
     {
         using (TDBContext dBContext = new TDBContext())

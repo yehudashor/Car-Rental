@@ -1,6 +1,6 @@
 ﻿using CarRentalDalCore.DalApi.IEntity;
-using CarRentalDalCore.DataObjects.BranchOperations;
-using CarRentalDalCore.DataObjects.CarOperations;
+using CarRentalDalCore.DataObjects.Branch;
+using CarRentalDalCore.DataObjects.Car;
 using CarRentalDalCore.DataObjects.Customer;
 using CarRentalDalCore.DataObjects.Locations;
 using CarRentalDalEF.Converters;
@@ -34,11 +34,8 @@ public class CarRentalDBContext : DbContext
 
     // לדרוס את הפונקציות של הוספה וכו ולהוסיף שמירה בתוכן ולאחר מכן למחוק.
     protected override void OnModelCreating(ModelBuilder modelBuilder)
-
     {
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-
-        modelBuilder.Entity<BranchOpeningHours>().HasData(new BranchOpeningHours { BranchOpeningHoursId = 5, DayOfWeek = DayOfWeek.Monday });
     }
 
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)

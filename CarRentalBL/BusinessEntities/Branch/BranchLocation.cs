@@ -20,7 +20,7 @@ public class BranchLocation
     /// <summary>
     /// The physical location associated with this branch location.
     /// </summary>
-    //public Location Location { get; set; }
+    public Location.Location Location { get; set; }
 
     /// <summary>
     /// The branch associated with this branch location.

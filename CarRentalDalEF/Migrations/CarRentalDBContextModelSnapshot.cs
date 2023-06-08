@@ -72,7 +72,7 @@ namespace CarRentalDalEF.Migrations
 
             modelBuilder.Entity("CarRentalDalCore.DataObjects.BranchOperations.BranchOpeningHours", b =>
                 {
-                    b.Property<int>("BranchOpeningHoursId")
+                    b.Property<int>("BranchId")
                         .HasColumnType("int");
 
                     b.Property<int>("DayOfWeek")
@@ -84,7 +84,7 @@ namespace CarRentalDalEF.Migrations
                     b.Property<TimeSpan>("StartTime")
                         .HasColumnType("time");
 
-                    b.HasKey("BranchOpeningHoursId", "DayOfWeek");
+                    b.HasKey("BranchId", "DayOfWeek");
 
                     b.ToTable("BranchesOpeningHours");
 
@@ -424,7 +424,7 @@ namespace CarRentalDalEF.Migrations
                 {
                     b.HasOne("CarRentalDalCore.DataObjects.BranchOperations.Branch", "Branch")
                         .WithMany("OpeningHoursList")
-                        .HasForeignKey("BranchOpeningHoursId")
+                        .HasForeignKey("BranchId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

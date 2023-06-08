@@ -1,4 +1,4 @@
-﻿using CarRentalDalCore.DataObjects.BranchOperations;
+﻿using CarRentalDalCore.DataObjects.Branch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -17,7 +17,7 @@ internal class BranchConfiguration : IEntityTypeConfiguration<Branch>
 
         builder.HasMany(b => b.OpeningHoursList)
             .WithOne(b => b.Branch)
-            .HasForeignKey(b => b.BranchOpeningHoursId)
+            .HasForeignKey(b => b.BranchId)
             .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasMany(b => b.CarRentals)

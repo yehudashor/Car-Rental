@@ -6,10 +6,10 @@ namespace CarRentalBL.BLApi.IBranch.IOpeningHoursService;
 public interface IBranchOpeningHoursService
 {
     Task<IEnumerable<BranchOpeningHours>> GetAllOpeningHours(Func<BranchOpeningHours, bool> filter = null);
-    Task<IEnumerable<BranchOpeningHours>> GetAllOpeningHoursByBranchId(int branchId);
-    Task<BranchOpeningHours> GetOpeningHours(int branchId, DayOfWeek dayOfWeek);
-
-    Task Add(params BranchOpeningHours[] branchOpeningHours);
+    Task<IEnumerable<BranchOpeningHours>> GetBranchOpeningHours(int branchId);
+    Task AddRange(int branchId, ICollection<BranchOpeningHours> branchesOpeningHours);
+    Task Add(BranchOpeningHours branchOpeningHours);
+    Task Delete(BranchOpeningHours branchOpeningHours);
 
     Task Update(BranchOpeningHours branchOpeningHours);
 

@@ -1,0 +1,24 @@
+<app-filter-branch-open-or-close
+  [all]="branchesForList.length"
+  [closeLen]="closeLen"
+  [openLen]="openLen"
+  (onSelectedFilterChanged)="onFilterSelected($event)"
+></app-filter-branch-open-or-close>
+
+<ng-container
+*ngFor="let branch of branchesForList"
+>
+<ng-container
+*ngIf="filterName == 'All' || branch.openClose == filterName" 
+>
+<ng-container >{{ branch | cityStreet: branchesForList}}</ng-container>
+  <app-branch-for-list
+   [branchForList]="branch">
+  </app-branch-for-list>
+  <br>
+
+</ng-container>
+ 
+</ng-container>
+
+

@@ -1,4 +1,4 @@
-﻿using CarRentalDalCore.DataObjects.BranchOperations;
+﻿using CarRentalDalCore.DataObjects.Branch;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -8,6 +8,6 @@ internal class BranchOpeningHoursConfiguration : IEntityTypeConfiguration<Branch
 {
     public void Configure(EntityTypeBuilder<BranchOpeningHours> builder)
     {
-        builder.HasKey(boh => new { boh.BranchOpeningHoursId, boh.DayOfWeek });
+
     }
 }
